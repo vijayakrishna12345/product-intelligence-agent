@@ -117,7 +117,9 @@ class LoopGuardMiddleware(AgentMiddleware):
         else:
             tool_name = str(getattr(call, "name", "") or getattr(request, "name", "") or "")
             args = getattr(call, "args", None) or getattr(request, "args", None) or {}
-            call_id = str(getattr(call, "id", None) or getattr(request, "tool_call_id", None) or "blocked")
+            call_id = str(
+                getattr(call, "id", None) or getattr(request, "tool_call_id", None) or "blocked"
+            )
         signature = _tool_call_signature(tool_name, args)
         if signature in _prior_tool_signatures(_messages_from_request(request)):
             return ToolMessage(
