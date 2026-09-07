@@ -149,6 +149,8 @@ activemq-data/
 
 # Environments
 .env
+.env.*
+!.env.example
 .envrc
 .venv
 env/
@@ -216,3 +218,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+secrets.toml
+
+# Cursor IDE
+.cursor/
+
+# DeepEval local cache
+.deepeval/
+
+# Secrets and local ingest artifacts
+*.pem
+credentials.json
+eval/results/*.json
+!eval/results/.gitkeep
+data/raw/
+
+# Playwright MCP snapshots
+.playwright-mcp/
+*.png

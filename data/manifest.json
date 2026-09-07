@@ -1,0 +1,11 @@
+{
+  "source": "petbarn",
+  "crawl_run_id": "cf15df7a-d622-447f-98d6-caae1985bfc9",
+  "scraped_at": "2026-09-07T19:43:26.049330+00:00",
+  "schema_version": 1,
+  "counts": {
+    "products": 275,
+    "reviews": 761,
+    "snapshot_excerpts_only": true
+  }
+}
