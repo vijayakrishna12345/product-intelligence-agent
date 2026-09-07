@@ -161,11 +161,16 @@ class AgentRunner:
             run.completed_at = _now()
             try:
                 self._runs.update_run(run)
+                user_message = str(exc)
+                if "step limit" in user_message.lower():
+                    content = user_message
+                else:
+                    content = "I could not complete that request. Please try again."
                 self._chats.append_message(
                     chat_id,
                     turn_id=turn_id,
                     role="assistant",
-                    content="I could not complete that request. Please try again.",
+                    content=content,
                     prompt_version=self._settings.prompt_version,
                 )
             except Exception:

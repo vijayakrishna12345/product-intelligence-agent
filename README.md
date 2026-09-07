@@ -49,7 +49,7 @@ Names come from `data/seed_products.json`. The full crawled catalog (~200 produc
 | **Framework** | `langchain.agents.create_agent` (single agent, no LangGraph) |
 | **Model** | Groq `openai/gpt-oss-120b` with `include_reasoning=false` |
 | **Tools** | 4 catalog tools only (see below) |
-| **Middleware** | `GuardrailMiddleware` → `ModelCallLimitMiddleware(15)` → `ToolCallLimitMiddleware(8)` |
+| **Middleware** | `GuardrailMiddleware` → `LoopGuardMiddleware` → `ModelCallLimitMiddleware(15)` → `ToolCallLimitMiddleware(6)` |
 | **Context** | Last 4 completed turns, capped at 6 000 tokens. System prompt is static for Groq cache. |
 | **Prompt caching** | Static system prompt first; history and current query appended after. |
 

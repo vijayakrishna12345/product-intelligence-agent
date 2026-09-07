@@ -82,7 +82,7 @@ class Settings:
         self.include_reasoning: bool = _get_bool("INCLUDE_REASONING", False)
         self.prompt_version: str = _get_str("PROMPT_VERSION", "v1")
         self.model_call_limit: int = _get_int("MODEL_CALL_LIMIT", 15)
-        self.tool_call_limit: int = _get_int("TOOL_CALL_LIMIT", 8)
+        self.tool_call_limit: int = _get_int("TOOL_CALL_LIMIT", 6)
         self.recursion_limit: int = _get_int("RECURSION_LIMIT", 20)
         self.max_requests_per_session: int = _get_int("MAX_REQUESTS_PER_SESSION", 30)
         self.recent_turns: int = _get_int("RECENT_TURNS", 4)

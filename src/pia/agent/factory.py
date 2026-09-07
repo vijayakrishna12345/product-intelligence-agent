@@ -10,7 +10,7 @@ from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, ToolMe
 from langchain_groq import ChatGroq
 
 from pia.agent.context import build_context
-from pia.agent.guardrails import GuardrailMiddleware
+from pia.agent.guardrails import GuardrailMiddleware, LoopGuardMiddleware
 from pia.agent.prompts import SYSTEM_PROMPT
 from pia.agent.tools import build_tools
 from pia.domain.errors import LLMError
@@ -47,6 +47,7 @@ def create_catalog_agent(
     tools = build_tools(catalog, comparison, settings)
     middleware = [
         GuardrailMiddleware(),
+        LoopGuardMiddleware(),
         ModelCallLimitMiddleware(run_limit=settings.model_call_limit, exit_behavior="end"),
         ToolCallLimitMiddleware(run_limit=settings.tool_call_limit, exit_behavior="end"),
     ]
@@ -170,7 +171,13 @@ def run_query(
             config={"recursion_limit": settings.recursion_limit},
         )
     except Exception as exc:
-        raise LLMError(str(exc)) from exc
+        message = str(exc)
+        if "recursion limit" in message.lower() or "GraphRecursionError" in type(exc).__name__:
+            raise LLMError(
+                "I hit my step limit while looking that up. "
+                "Please name one product or SKU, or ask a narrower question."
+            ) from exc
+        raise LLMError(message) from exc
     latency_ms = int((time.perf_counter() - started) * 1000)
     messages = result.get("messages") if isinstance(result, dict) else result
     messages = list(messages or [])

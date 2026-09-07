@@ -17,7 +17,7 @@
     "max_tool_calls": 5,
     "answer_must_contain_any": ["4.1"],
     "answer_must_not_contain": ["1.0 is correct", "rating is 1.0", "rating of 1.0"],
-    "expected_tools_any": ["get_product_details"]
+    "expected_tools_any": ["get_product_details", "get_product_reviews"]
   },
   {
     "id": "unknown-product",

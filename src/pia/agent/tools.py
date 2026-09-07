@@ -78,18 +78,50 @@ def build_tools(catalog, comparison, settings: Settings | None = None) -> list:
         try:
             payload = catalog.details_payload(product_query)
         except AmbiguousProduct as exc:
-            payload = {"ok": False, "error": "ambiguous", "candidates": exc.candidates}
+            payload = {
+                "ok": False,
+                "error": "ambiguous",
+                "candidates": exc.candidates,
+                "guidance": (
+                    "List these candidates and ask which product the user means. "
+                    "Do not retry the same product_query."
+                ),
+            }
         except ProductNotFound as exc:
-            payload = {"ok": False, "error": "not_found", "candidates": exc.candidates}
+            payload = {
+                "ok": False,
+                "error": "not_found",
+                "candidates": exc.candidates,
+                "guidance": (
+                    "Tell the user the product is not in the catalog. "
+                    "Do not invent facts or retry the same product_query."
+                ),
+            }
         return _clip(payload, settings)
 
     def get_product_reviews(product_query: str, limit: int | None = None) -> str:
         try:
             payload = catalog.reviews_payload(product_query, limit=limit)
         except AmbiguousProduct as exc:
-            payload = {"ok": False, "error": "ambiguous", "candidates": exc.candidates}
+            payload = {
+                "ok": False,
+                "error": "ambiguous",
+                "candidates": exc.candidates,
+                "guidance": (
+                    "List these candidates and ask which product the user means. "
+                    "Do not retry the same product_query."
+                ),
+            }
         except ProductNotFound as exc:
-            payload = {"ok": False, "error": "not_found", "candidates": exc.candidates}
+            payload = {
+                "ok": False,
+                "error": "not_found",
+                "candidates": exc.candidates,
+                "guidance": (
+                    "Tell the user the product is not in the catalog. "
+                    "Do not invent facts or retry the same product_query."
+                ),
+            }
         return _clip(payload, settings)
 
     def compare_products(product_queries: list[str]) -> str:
