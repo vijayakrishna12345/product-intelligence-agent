@@ -44,7 +44,11 @@ class CatalogService:
             for product, score in ranked:
                 if score < 0.35 or product.sku in seen:
                     continue
-                if max_price is not None and product.price is not None and product.price > max_price:
+                if (
+                    max_price is not None
+                    and product.price is not None
+                    and product.price > max_price
+                ):
                     continue
                 seen.add(product.sku)
                 hits.append(product)

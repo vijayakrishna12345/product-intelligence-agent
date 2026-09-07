@@ -3,7 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from tests.eval.load_dataset import load_conversational_goldens, load_goldens
+from tests.eval.load_dataset import (
+    load_conversational_goldens,
+    load_difficult_goldens,
+    load_goldens,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 SAMPLE = json.loads((ROOT / "data" / "sample_catalog.json").read_text(encoding="utf-8"))
@@ -52,3 +56,16 @@ def test_conversational_count():
     rows = load_conversational_goldens()
     assert len(rows) == 10
     assert sum(1 for row in rows if "adversarial" in row.get("tags", [])) == 3
+
+
+def test_difficult_goldens_schema():
+    rows = load_difficult_goldens()
+    assert len(rows) == 12
+    ids = {row["id"] for row in rows}
+    assert len(ids) == 12
+    for row in rows:
+        assert row.get("input")
+        assert row.get("tags")
+        assert row.get("must_complete") or row.get("refusal")
+        if row.get("refusal"):
+            assert row.get("max_tool_calls") == 0

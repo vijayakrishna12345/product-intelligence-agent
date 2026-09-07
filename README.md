@@ -118,6 +118,12 @@ Four pages via `st.navigation`:
 
 ## Evaluation
 
+### Release gate (`pytest -m release`)
+
+12 difficult cases in `tests/eval/difficult_goldens.json`: hallucination traps, ambiguous brands, 3-way compare, review synthesis, adversarial guardrails, value-per-kg math, and filtered search. Deterministic assertions (no LLM judge) — must complete without recursion errors, respect tool-call limits, and pass content checks.
+
+`scripts/check_ready.py` runs this gate when `GROQ_API_KEY` is set. Results written to gitignored `eval/results/difficult_latest.json`.
+
 ### Single-turn (`pytest -m eval`)
 
 16 golden test cases in `tests/eval/goldens.json` covering: price lookup, rating, reviews, search, comparison (2 and 3 products), ambiguous queries, unknown products, hallucination resistance, and indirect prompt injection.
@@ -145,7 +151,7 @@ Results written to gitignored `eval/results/latest.json`.
 product-intelligence-agent/
 ├── streamlit_app.py              # Entrypoint: st.navigation across 4 pages
 ├── pyproject.toml                # uv/hatch, Python 3.12, deps
-├── pytest.ini                    # Markers: unit (default), eval, conversation
+├── pytest.ini                    # Markers: unit (default), eval, conversation, release
 ├── .env.example                  # All env vars with placeholder values
 │
 ├── src/pia/
@@ -225,12 +231,14 @@ product-intelligence-agent/
 │   ├── test_secret_scan.py       # No secrets in tracked files
 │   └── eval/
 │       ├── goldens.json          # 16 single-turn golden test cases
+│       ├── difficult_goldens.json # 12 difficult release-gate cases
 │       ├── conversational_goldens.json
 │       ├── attack_scenarios.py   # Adversarial simulation graphs
 │       ├── groq_judge.py         # GroqJudge DeepEval adapter (retries 429s)
 │       ├── simulator.py          # Conversation model callback
 │       ├── load_dataset.py       # Golden → DeepEval Golden mapper
 │       ├── test_agent_eval.py    # Single-turn eval harness
+│       ├── test_difficult_eval.py # Release gate (difficult questions)
 │       ├── test_conversation_eval.py  # Multi-turn simulator harness
 │       └── test_dataset_schema.py     # Golden JSON schema validation
 │
@@ -291,8 +299,9 @@ uv run ruff check .                  # Lint
 uv run ruff format --check .         # Format check
 uv run pytest                        # Unit tests (no network, no keys needed)
 uv run pytest -m eval                # Single-turn eval (needs GROQ_API_KEY)
+uv run pytest -m release             # Difficult-question release gate (needs GROQ_API_KEY)
 uv run pytest -m conversation        # Multi-turn simulator (needs GROQ_API_KEY)
-uv run python scripts/check_ready.py # Pre-push readiness check
+uv run python scripts/check_ready.py # Pre-push readiness + release gate
 ```
 
 Default `pytest` runs only unit tests with fakes and fixtures — no Groq, Supabase, or Petbarn calls.

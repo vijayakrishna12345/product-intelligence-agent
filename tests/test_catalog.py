@@ -68,6 +68,12 @@ def test_fuzzy_match(catalog_service):
     assert product.sku == "SYN-KONG-FLYER"
 
 
+def test_search_max_price_filter(catalog_service):
+    hits = catalog_service.search("advance indoor", max_price=25.0)
+    assert hits
+    assert all(item.price is None or item.price <= 25.0 for item in hits)
+
+
 def test_snapshot_file_is_compact():
     path = ROOT / "data" / "catalog.json"
     if not path.exists():

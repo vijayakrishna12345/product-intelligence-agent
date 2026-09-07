@@ -69,6 +69,18 @@ def main() -> int:
             build_model(settings)
         except Exception as exc:
             errors.append(f"groq model init failed: {exc}")
+        gate = subprocess.run(
+            ["uv", "run", "pytest", "-m", "release", "-q"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if gate.returncode != 0:
+            errors.append("release gate failed (pytest -m release)")
+            tail = (gate.stdout + gate.stderr).strip()[-3000:]
+            if tail:
+                errors.append(tail)
     if errors:
         for item in errors:
             sys.stderr.write(item + "\n")

@@ -1,6 +1,6 @@
 {
   "source_type": "petbarn_snapshot",
-  "scraped_at": "2026-09-07T19:43:26.023259+00:00",
+  "scraped_at": "2026-09-07T19:57:10.734747+00:00",
   "products": [
     {
       "sku": "140242",
@@ -11361,6 +11361,2048 @@
           "rating": 4,
           "date": "2024-10-06",
           "text": "We had excellent customer service on our recent visit! Toby (11 month old doglet) and I went to the store to investigate harnesses and walked out with many treats and toys and a really positive experience. Thank you, A.\r\n\r\nPS. We bought these treats as the company supports rescue dogs. Win!"
+        }
+      ]
+    },
+    {
+      "sku": "136420",
+      "name": "Wahl 2 in 1 E-Z Nail Clipper and Grinder",
+      "brand": "Wahl",
+      "price": 51.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 1.8095,
+      "review_count": 21,
+      "url": "https://www.petbarn.com.au/p/wahl-2-in-1-ez-dog-nail-trimmer",
+      "description": "Buy Wahl 2 In 1 Ez Dog Nail Trimmer for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 2,
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "sentiment": {
+        "positive": 0.3333,
+        "neutral": 0.0,
+        "negative": 0.6667
+      },
+      "scraped_at": "2026-09-07T19:43:30.246012+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-06-16",
+          "text": "Absolutely shockingly bad nail trimmers These are the worst clippers I\u2019ve ever used and it almost completely puts me off Wahl as a company\u2026 the nail buffer on the end does not work at all. If you put even the slightest pressure on it, it will just stop and fall off and there isn\u2019t enough power to buff the nail. I have had these for 6months now and now even the trimmers don\u2019t work, completely blun\u2026"
+        },
+        {
+          "rating": 1,
+          "date": "2025-12-18",
+          "text": "Does not cut nails properly Really disappointed with this as it doesn\u2019t do a clean cut on my dog\u2019s nails (I have a mini dachshund, so I\u2019d hate to think how a larger dog would go with this). Like others have said, it half cuts my dog\u2019s nails and then rips/twists the rest of the nail off. There\u2019s also a bit of a kickback/recoil, which startles my dog. Would not recommend."
+        },
+        {
+          "rating": 3,
+          "date": "2025-04-28",
+          "text": "I dont love it as nuch as i hoped because of the drill bit but love the clippers. I'd love to give this product 5 stars, however the only reason I bought it was for the nail drill bit but it's not that good at all. On the upside the clippers are absolutely amazing, really good quality and strong for thick nails which all of my fur babies have. Highly recommended if your pet has really thick nails\u2026"
+        }
+      ]
+    },
+    {
+      "sku": "124255",
+      "name": "Ezydog Zero Shock Dog Leash 120cm Black",
+      "brand": "EzyDog",
+      "price": 66.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.8182,
+      "review_count": 33,
+      "url": "https://www.petbarn.com.au/p/ezydog-zero-shock-dog-leash-120cm-black",
+      "description": "Buy Ezydog Zero Shock Dog Leash 120cm Black for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:43:43.371126+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2025-11-23",
+          "text": "A leash of its kind The best leash ever. It was highly recommended for my foster dog who pulled and bolted in the other direction when scared. Trainer recommended to get a bungee leash and 8/9 years ago, this was the only one available at my local pet store. Safe to say it\u2019s durability is fantastic as we still have that leash even though my dog no longer pulls, it\u2019s the best leash and would recom\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2024-04-01",
+          "text": "Beautiful lead I brought this lead a couple months ago for my rednosepitbull cross and I would recommend this lead for high pulling dogs or just good walking dogs any way I would buy this lead really really good I have about 10 leads and will pick this everytime IV tried other leads and they are not safe for my dog but this 1 I know my dogs is safe thanks Ezy dog/animates"
+        },
+        {
+          "rating": 5,
+          "date": "2023-12-17",
+          "text": "Best quality Bought this when Bowie was a itty bulldog puppy and still have it six years later. It\u2019s amazing quality. The bungee is great for short leash control, I use the d-ring for litter bags and it\u2019s been from beach to forest to city with us."
+        }
+      ]
+    },
+    {
+      "sku": "136476",
+      "name": "Mix Or Match 12 Rope & TPR Ball Dog Toy Assorted",
+      "brand": "Mix Or Match 12",
+      "price": 8.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.68,
+      "review_count": 25,
+      "url": "https://www.petbarn.com.au/p/mix-or-match-rope-tpr-ball-dog-toy-assorted",
+      "description": "Shop Mix Or Match Rope & TPR Ball Dog Toy your pet will adore \u0096 enjoy our Price Match Guarantee and Same-Day Delivery. Explore now at Petbarn!",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:43:55.945008+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2025-04-07",
+          "text": "Rope & ball He is a chewer and loves his chewy toys."
+        },
+        {
+          "rating": 5,
+          "date": "2024-10-12",
+          "text": "My pet loved this Decent price and strong"
+        },
+        {
+          "rating": 1,
+          "date": "2024-09-09",
+          "text": "Cheap Too small- pretty cheap and nasty. My advice would be, don\u2019t even bother with these free giveaways. They detract from the quality of your brand"
+        }
+      ]
+    },
+    {
+      "sku": "114438",
+      "name": "Petbarn Tropical Flakes 500g",
+      "brand": "Petbarn",
+      "price": 32.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.4474,
+      "review_count": 76,
+      "url": "https://www.petbarn.com.au/p/petbarn-tropical-flakes-500g",
+      "description": "Buy Petbarn Tropical Flakes 500g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:44:08.587062+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 4,
+          "date": "2026-06-23",
+          "text": "$20 turns into $60 Dallors ! Awsome deal one packet fill one large and 3 small container ! Its flakes are a bit on the hard side ! Crumble well !"
+        },
+        {
+          "rating": 5,
+          "date": "2026-04-03",
+          "text": "Bulk tropical fish flakes I bought this product so I could stock up for a holiday the fish are very happy! I would recommend as this is great value and keeps well in an airtight container."
+        },
+        {
+          "rating": 1,
+          "date": "2025-12-21",
+          "text": "5% product 95% air I bought in bulk in the hopes it would last me a while, however the flakes are huge, so when crushed down to make it small enough for fish to eat it's not even a quarter of a bag. Not to mention it's hard and the texture is gross."
+        }
+      ]
+    },
+    {
+      "sku": "131677",
+      "name": "Bravecto Chew for Medium Dogs 3 month pack - 10 to 20kg",
+      "brand": "Bravecto",
+      "price": 104.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.25,
+      "review_count": 16,
+      "url": "https://www.petbarn.com.au/p/bravecto-flea-and-tick-chew-for-medium-dog-10-20kg",
+      "description": "Buy Bravecto Flea And Tick Chew For Medium Dog 10-20kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:44:20.789041+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-03-01",
+          "text": "We have been using Bravecto with Daisy for nearly 4 years. It has been great and we have never had any problems"
+        },
+        {
+          "rating": 5,
+          "date": "2025-10-22",
+          "text": "Great to keep my working dogs safe from ticks I buy this for my working dogs every 3 months, easy to use and keeps them safe from ticks and fleas"
+        },
+        {
+          "rating": 5,
+          "date": "2024-11-11",
+          "text": "He will love it as he is very good taking medication and his flea and worm treats I used to work as a vet nurse in Victoria and epreally like this product so will be giving it to my beautiful rescue boy soon"
+        }
+      ]
+    },
+    {
+      "sku": "136284",
+      "name": "Divine Pets Professional Revitalising Dog Conditioner 500Ml",
+      "brand": "Divine Pets Professional",
+      "price": 23.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 5.0,
+      "review_count": 16,
+      "url": "https://www.petbarn.com.au/p/divine-pets-professional-revitalising-dog-conditioner-500ml",
+      "description": "Buy Divine Pets Professional Revitalising Dog Conditioner 500Ml for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:44:33.946025+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-01-12",
+          "text": "I love this product My dog smells wonderful and his coat is like silk after using this product for the first time.  Well worth the money."
+        },
+        {
+          "rating": 5,
+          "date": "2024-10-08",
+          "text": "Great product This is the third time I\u2019ve bought this for my dog. The shampoo and conditioner leave my dog\u2019s fur feeling soft and fluffy. He always gets lots of compliments."
+        },
+        {
+          "rating": 5,
+          "date": "2024-06-06",
+          "text": "Best Conditioner I\u2019ve ever used on my dogs Gorgeous product - smells great on my dogs and left  them both with incredibly soft and tangle free coats \nHighly recommend!"
+        }
+      ]
+    },
+    {
+      "sku": "136191",
+      "name": "Butcher's Superior Cuts Beef Ear Dog Treat Loose",
+      "brand": "Butcher's Superior Cuts",
+      "price": 5.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.4819,
+      "review_count": 83,
+      "url": "https://www.petbarn.com.au/p/butcher-s-superior-cuts-beef-ear-dog-treat",
+      "description": "Buy Butcher's Superior Cuts Beef Ear Dog Treat Loose for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:44:47.035153+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 4,
+          "date": "2026-01-28",
+          "text": "Soggy Natural Animal Ear. We thought we'd get our puppy some trusty treats to help with her teething.\nThese animal ears are natural so are only air dried and therefore become hydrated as your pooch chews on them making them a soggy mess of goo...but they luv them...my partner didn't particularly like having a good mess stuck on the couch...but outside or in their bed, no problems ...I probs would\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2025-04-08",
+          "text": "Good treat! Snow loves this"
+        },
+        {
+          "rating": 5,
+          "date": "2025-02-19",
+          "text": "My dog Annie loves them Bought a few days ago"
+        }
+      ]
+    },
+    {
+      "sku": "130918",
+      "name": "Aqua One Betta Gravel Glass Purple 350g",
+      "brand": "Aqua One",
+      "price": 11.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": null,
+      "review_count": 0,
+      "url": "https://www.petbarn.com.au/p/aqua-one-betta-glass-gravel-purple-350g",
+      "description": "Buy Aqua One Betta Glass Gravel Purple 350g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {},
+      "sentiment": {},
+      "scraped_at": "2026-09-07T19:45:00.272546+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": []
+    },
+    {
+      "sku": "132313",
+      "name": "Pisces Laboratories Slim Hanging Filter SH200",
+      "brand": "Pisces Laboratories",
+      "price": 66.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 3.8,
+      "review_count": 5,
+      "url": "https://www.petbarn.com.au/p/pisces-laboratories-slim-hanging-filter-sh200",
+      "description": "Buy Pisces Laboratories Slim Hanging Filter SH200 for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:45:40.250969+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2025-08-19",
+          "text": "Quiet & powerful. Excellent water filter. It keeps my 180 litre tank clean, is easy to install, and is very quiet."
+        },
+        {
+          "rating": 3,
+          "date": "2024-11-27",
+          "text": "Great filter, short lifespan though It worked great, for awhile. After a year it just died, im considering buying another and seeing how long it lasts this time. If it dies in a year again, i wont buy again. All reviews i looked up at the time id bought it were all 'just purchased' reviews, i never found any on long term use."
+        },
+        {
+          "rating": 5,
+          "date": "2024-01-02",
+          "text": "good I was sceptical at first (I have never heard of the brand before) but after 2 failed Aqua one brand filters within the last 6 months, I have got to say that I am happy I made the switch. I got a larger filter for my 5 gallon tank and it works amazingly! the water has never looked so clean & my fish have never been so happy."
+        }
+      ]
+    },
+    {
+      "sku": "126694",
+      "name": "Feline First Corner Hooded Cat Litter Tray",
+      "brand": "Feline First",
+      "price": 86.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": null,
+      "review_count": 3,
+      "url": "https://www.petbarn.com.au/p/feline-first-cat-litter-house-medium",
+      "description": "Buy Feline First Cat Litter House Medium for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 2,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:45:53.465334+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2025-08-10",
+          "text": "Great for small spaces Love this corner hooded litter box. Super easy to clean both top and tray and perfect for a small laundry space. Mine loves to kick litter everywhere so this is perfect to keep tracking to a minimum with zero leaks. Now she's growing it may be on the small side for a fully grown adult cat so yes, a slightly higher model might be a good idea, but can't fault it otherwise (an\u2026"
+        },
+        {
+          "rating": 4,
+          "date": "2024-05-26",
+          "text": "Feline First Corner Hooded Cat Litter Tray 'Good Litter box. I use it without the cat-flap attached. My kitten fits in it fine, but my older cat is getting a bit big, so she goes inside, then steps out and pokes half her body in to cover up. I love the design and its easy to take the top off to clean, but i wish it was bigger. Perfect for kittens.'"
+        },
+        {
+          "rating": 4,
+          "date": "2024-05-26",
+          "text": "Good litter tray, flap not so good The flap is a little difficult for the cat, so we took it off. In saying that more litter does stay inside"
+        }
+      ]
+    },
+    {
+      "sku": "136417",
+      "name": "Wahl Nylon Slicker Dog Brush Small",
+      "brand": "Wahl",
+      "price": 26.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.0169,
+      "review_count": 59,
+      "url": "https://www.petbarn.com.au/p/wahl-nylon-slicker-dog-brush-small",
+      "description": "Buy Wahl Nylon Slicker Dog Brush Small for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 1,
+        "3": 1,
+        "4": 0,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:46:06.904422+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 2,
+          "date": "2026-05-11",
+          "text": "Wahl Nylon Slicker Dog Brush Large 'The white caps on the brush fall off easily. Not good for longer haired breeds. Would probably be Fine for medium, thin coats '"
+        },
+        {
+          "rating": 3,
+          "date": "2025-03-27",
+          "text": "Good ok I bought the small WHAL slicker brush for my Australian Labradoodle last week. I bought the small because my dogs small, while she seems to like it better than the metal slicker brush I had, I\u2019m not sure it get into her coat enough. I will buy the bigger one I think."
+        },
+        {
+          "rating": 5,
+          "date": "2024-10-05",
+          "text": "Works well on cavoodle hair! This brush does well for my toy cavoodles hair! His hair comes out super smooth and he is never showing signs of discomfort so bristles are strong but soft to break through the curls. My go to"
+        }
+      ]
+    },
+    {
+      "sku": "134931",
+      "name": "Tetra Whisper Air Pump 300 Litre",
+      "brand": "Tetra",
+      "price": 77.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.1538,
+      "review_count": 13,
+      "url": "https://www.petbarn.com.au/p/tetra-whisper-air-pump-300-litre",
+      "description": "Buy Tetra Whisper Air Pump 300 Litre for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 1,
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:46:20.213628+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-04-15",
+          "text": "Short lived A good pump when working, but dead after 18 months.\nNot a cheap pump, expected it to last for years.\nNot considered good value for money."
+        },
+        {
+          "rating": 5,
+          "date": "2026-04-15",
+          "text": "Tetra Whisper Air Pump 300 Litre 'This is the best pump  very very quiet lots of  air power coming out off outlets'"
+        },
+        {
+          "rating": 2,
+          "date": "2026-03-16",
+          "text": "Tried all different set ups and they didn't work I bought this today and I'm so confused if it's consumers fault or not, but it's loud... I have the whisper 100 and that is amazing! So I'm going to try and return the 300 and get another 100 as you cannot even hear the 100."
+        }
+      ]
+    },
+    {
+      "sku": "135645",
+      "name": "Tetra FreshDelica Krill 48g",
+      "brand": "Tetra",
+      "price": 17.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": null,
+      "review_count": 3,
+      "url": "https://www.petbarn.com.au/p/tetra-freshdelica-krill-48g",
+      "description": "Buy Tetra FreshDelica Krill 48g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:46:34.819225+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 3,
+          "date": "2026-01-14",
+          "text": "Worth a try. Added to feed routine for a bit of variety, bit hit and miss.  Definitely not their favourite."
+        },
+        {
+          "rating": 4,
+          "date": "2025-08-21",
+          "text": "Hungry Fish Fish appear to like the food, low mess."
+        },
+        {
+          "rating": 5,
+          "date": "2024-10-04",
+          "text": "Happy guppy Guppies loved it"
+        }
+      ]
+    },
+    {
+      "sku": "137633",
+      "name": "Bravecto Plus all-in-one for Small Cats 1.2- 2.8kg 1Pack",
+      "brand": "Bravecto Plus",
+      "price": 54.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.55,
+      "review_count": 20,
+      "url": "https://www.petbarn.com.au/p/bravecto-plus-2-month-sm-2-8kg-cat-f-t-w-pipette-green-1pk",
+      "description": "Buy Bravecto Plus 2 Month Sm 2.8kg Cat F&T&W Pipette Green 1Pk for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.3333,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:46:48.483150+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-03-13",
+          "text": "Unusable, wouldn\u2019t buy again. I brought this product on Tuesday went to apply it on my cat and the lid keeps spinning and spinning and it\u2019s completely unusable."
+        },
+        {
+          "rating": 5,
+          "date": "2025-01-24",
+          "text": "\u2b50\u2b50\u2b50\u2b50\u2b50 Awesome \ud83d\udc4d\ud83d\udc4d\ud83d\udc4d"
+        },
+        {
+          "rating": 5,
+          "date": "2024-10-20",
+          "text": "Flea Drop I find my cat is gradually reducing his scratching.  I use this once every three months and will continue  to do so as a preventive solution."
+        }
+      ]
+    },
+    {
+      "sku": "135663",
+      "name": "Tetra EasyStrips 6-in-1 Test Kit 25 Pack",
+      "brand": "Tetra",
+      "price": 26.5,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 3.8,
+      "review_count": 15,
+      "url": "https://www.petbarn.com.au/p/tetra-easystrips-6-in-1-test-kit-25-pack",
+      "description": "Buy Tetra EasyStrips 6-in-1 Test Kit 25 Pack for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 1,
+        "3": 0,
+        "4": 1,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:47:04.813766+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 2,
+          "date": "2026-06-28",
+          "text": "Tetra EasyStrips 6-in-1 Test Kit 25 Pack 'It says it detects chlorine, but it doesn't. I tested twice and after murdering a small batch of goldfish fry each time, I dipped the test strip straight in the tap water and what do you know, chlorine levels were still showing zero. A redeeming factor is that it's excellent at detecting other water parameters such as nitrites and nitrates.'"
+        },
+        {
+          "rating": 5,
+          "date": "2024-08-10",
+          "text": "Works as it should Not sure why this is getting bad reviews, it works perfectly for me. I\u2019ve had no issues with using it or with colours not being accurate/correct."
+        },
+        {
+          "rating": 4,
+          "date": "2023-09-05",
+          "text": "Tetra EasyStrips 6-in-1 Test Kit 25 Pack 'I have found that these strips are very easy to use and are very accurate.'"
+        }
+      ]
+    },
+    {
+      "sku": "136489",
+      "name": "KONG CoreStrength Bone Dog Toy Small-Medium",
+      "brand": "KONG",
+      "price": 18.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 3.6667,
+      "review_count": 42,
+      "url": "https://www.petbarn.com.au/p/kong-corestrength-bone-dog-toy-blue-green-small-medium",
+      "description": "Buy Kong CoreStrength Bone Dog Toy Blue Green Small-Medium for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 3,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "sentiment": {
+        "positive": 0.0,
+        "neutral": 0.0,
+        "negative": 1.0
+      },
+      "scraped_at": "2026-09-07T19:47:17.992402+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2025-11-11",
+          "text": "Waste of money This chew is meant to be for strong chewers and its not.\nWithin an hour of my pup having rhis she had chewed a hole in it.\nFor the price of this item, i am very disappointed"
+        },
+        {
+          "rating": 1,
+          "date": "2024-10-21",
+          "text": "Nope dog likes it, but human hates it Not a good product = the green edges are chewed into small pieces and swallowed"
+        },
+        {
+          "rating": 1,
+          "date": "2024-10-21",
+          "text": "We have had the same issue ends have been chewed off. Do not recommend"
+        }
+      ]
+    },
+    {
+      "sku": "133011",
+      "name": "KONG Squeezz Crackle Stick Dog Toy Large",
+      "brand": "KONG",
+      "price": 31.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 3.5897,
+      "review_count": 39,
+      "url": "https://www.petbarn.com.au/p/kong-dog-toy-squeezz-crackle-stick-large",
+      "description": "Buy Kong Dog Toy Squeezz Crackle Stick Large for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 3,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "sentiment": {
+        "positive": 0.3333,
+        "neutral": 0.0,
+        "negative": 0.6667
+      },
+      "scraped_at": "2026-09-07T19:47:31.555048+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-06-24",
+          "text": "Don't leave unattended around dog I purchased this product yesterday and it's already falling apart after less than 24 hours of use. The product end is coming away and I'm very concerned that if I hadn't spotted it by 4 month old puppy could have swallowed it, which would have made him very sick! Very disappointed as Kong products are supposed to be durable, and he really enjoyed the texture and\u2026"
+        },
+        {
+          "rating": 1,
+          "date": "2026-06-23",
+          "text": "Poor quality Kong product Have used these toys for my large dog in  the past and she has enjoyed them greatly- used as a supervised chew on her outside bed. The latest stick has only lasted a few weeks despite being used only about once a week. The 2 ends have both popped out. Fortunately we were supervising and removed the toy before our dog risked choking/swallowing them. Kong quality in this t\u2026"
+        },
+        {
+          "rating": 1,
+          "date": "2026-06-23",
+          "text": "KONG Squeezz Crackle Stick Dog Toy Large 'My lab decimated this toy in minutes. It is not the sturdy Kong material of their classic toys, it is squishy and easily ripped apart by the dog if they are inclined to chew before bringing it back in fetch. I have had actual sticks last longer. '"
+        }
+      ]
+    },
+    {
+      "sku": "126045",
+      "name": "Royal Canin Medium Breed Aging 10+ Adult Dog Food 15kg",
+      "brand": "ROYAL CANIN",
+      "price": 239.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.8,
+      "review_count": 20,
+      "url": "https://www.petbarn.com.au/p/royal-canin-medium-ageing-10-plus-dog-food-15kg",
+      "description": "Buy Royal Canin Medium Ageing 10 Plus Dog Food - 15kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:47:45.250231+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-08-28",
+          "text": "Very good We started our boy, \u2018Nick\u2019 on Royal Canin puppy (all those years ago) and continued feeding him Royal Canin into his prime. We recently tried a cheaper option (because he was getting older) but really noticed the health benefits Royal Canin provides Nick.We are currently feeding Nick, who is a healthy, 12 year old Staffordshire Bull Terrier, Royal Canin, 'Medium - Aging 10 plus' after t\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2026-08-11",
+          "text": "Great food for golden oldies My 15 year old border collie loves this food, it\u2019s softer and easier for him to chew."
+        },
+        {
+          "rating": 5,
+          "date": "2025-09-26",
+          "text": "Great for my old girl I\u2019ve been feeding my older medium-sized dog Royal Canin Medium Ageing 10+ for a while now.\n\t\u2022\tThe kibble size is good and small enough for an older dog to manage easily. My dog eats it without fuss, which is a win because she\u2019s a bit picky. Her digestion is better with firmer stools, less tummy upset! Her coat still looks healthy and shiny despite the greys and no need to ad\u2026"
+        }
+      ]
+    },
+    {
+      "sku": "137702",
+      "name": "Wahl Slicker Dog Brush Large",
+      "brand": "Wahl",
+      "price": 49.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.4857,
+      "review_count": 35,
+      "url": "https://www.petbarn.com.au/p/wahl-slicker-dog-brush-large",
+      "description": "Buy Wahl Slicker Dog Brush Large for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 2,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:47:59.643047+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-02-28",
+          "text": "Wahl Slicker Dog Brush Small 'Not recommended. I replaced twice due to cleaning button not back on properly, ended up refunded and bought other brand(no cleaning button one) so much better!'"
+        },
+        {
+          "rating": 5,
+          "date": "2024-11-11",
+          "text": "Wahl slicker dog brush \ud83d\udc36 This Wahl slicker dog brush is great for my rough coat jack Russell.\r\nI bought my original one about 3 years ago and it has worn well. Time for a new one. They work well on cats and dogs to as our cat has the odd brush to! Great quality product."
+        },
+        {
+          "rating": 1,
+          "date": "2024-01-26",
+          "text": "Hair removing button fails I ended up having to throw this product out because over time, the hair removing function made the wire bristles get all bent out of shape and squashed between the brush. The gel handle also didn\u2019t work out, as my puppy bit it when she was really young and so the gel would keep oozing out. Would not recommend."
+        }
+      ]
+    },
+    {
+      "sku": "106305",
+      "name": "Pond One Holiday Fish Food 100g",
+      "brand": "Pond One",
+      "price": 19.5,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": null,
+      "review_count": 0,
+      "url": "https://www.petbarn.com.au/p/pond-one-holiday-fish-food-100g",
+      "description": "Buy Pond One Holiday Fish Food 100g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {},
+      "sentiment": {},
+      "scraped_at": "2026-09-07T19:48:14.105570+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": []
+    },
+    {
+      "sku": "137629",
+      "name": "Petsafe Spray Bark Control Dog Training Collar Citronella",
+      "brand": "PetSafe",
+      "price": 222.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 3.7108,
+      "review_count": 166,
+      "url": "https://www.petbarn.com.au/p/petsafe-spray-bark-control-dog-collar-citronella",
+      "description": "A burst of spray keeps the barking at bay with the help of the PetSafe Spray Bark Collar. The collar consistently teaches your dog not to bark using innovative bark-sensing technology and a gentle spray stimulation. The safe and easy-to-use collar is designed to ensure that no other dog\u0092s barking or outside noises will cause the collar to correct using our unique bark-sensing technology. The spra\u2026",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 0.3333,
+        "neutral": 0.3333,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:48:55.567991+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-05-15",
+          "text": "Very little barking [This review was collected as part of a promotion.] I have a silky terrier.... anyone that knows this breed can tell you they are barkers.  I have seen other products that don't seem safe. I was a little skeptical with this collar because I have used a spray bottle to help stop the barking and it didn't work.  The collar was easy to put on and setup.  The very first time I put\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2026-02-27",
+          "text": "A quiet German Shepherd Appeared to work on my German Shepherd who was nuisance barking"
+        },
+        {
+          "rating": 5,
+          "date": "2025-11-05",
+          "text": "Really Works! [This review was collected as part of a promotion.] I have a friend that has two small dogs.  When I visit and ring the door bell they go crazy.  She wouldn't use the \"shock\" collar on her dogs and was hesitant to use this one for fear that it would get water all over her wood floor.  Well it just sprays a mist in the air in front of the dog, they smelled the lemon, shook they heads\u2026"
+        }
+      ]
+    },
+    {
+      "sku": "127547",
+      "name": "PAW Skin Coat & Nails Dog Chews 300g",
+      "brand": "Paw",
+      "price": 39.95,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.2857,
+      "review_count": 14,
+      "url": "https://www.petbarn.com.au/p/paw-coat-skin-and-nail-multivitamin-chews-300g",
+      "description": "Buy PAW Skin Coat & Nails Dog Chews 300g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:49:14.425216+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2024-09-06",
+          "text": "Great product My vet recommended that I give my Staffy Omega vitamins for his itchy skin, so I went to my local Petbarn to find this. I bought the liquidated version, and he loves it! Apparently it tastes great, it's been only a few days and he's looking better, and it's even got him eating his antihistamines - if that doesn't warrant a five star rating, I don't know what does!"
+        },
+        {
+          "rating": 5,
+          "date": "2024-09-06",
+          "text": "Excellent product. My vet couldn't immediately identify the cause of bald, flaky patches on my dog's skin, which recommended shampoo/conditioner did not cure. A few weeks on this chew and my dog's coat is beautifully shiny and normal. Seems he was lacking something in his diet which this product has resolved."
+        },
+        {
+          "rating": 5,
+          "date": "2024-09-06",
+          "text": "My dog loves the taste of them Its abit early to tell if these are working as i brought them to improve my dog coat. But he loves the taste of them"
+        }
+      ]
+    },
+    {
+      "sku": "136477",
+      "name": "Mix Or Match Funny Character Dog Toy Blue Yellow",
+      "brand": "Mix Or Match 12",
+      "price": 8.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 3.8261,
+      "review_count": 46,
+      "url": "https://www.petbarn.com.au/p/mix-or-match-funny-character-dog-toy-blue-yellow",
+      "description": "Shop Mix Or Match Funny Character Dog Toy your pet will find irresistible \u0096 enjoy our Price Match Guarantee and Same-Day Delivery. Explore now at Petbarn!",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:49:35.171059+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2025-10-19",
+          "text": "RIP funny character Puppy removed the eye in 5 minutes and then disembowled it easily \nWhich he did have allot of fun doing but it isnt a toy that works"
+        },
+        {
+          "rating": 5,
+          "date": "2024-10-14",
+          "text": "Our puppies favourite toy \ud83d\ude0a Our puppy\u2019s favourite toy. Such a cute character. Light weight but so far lasting well. We purchased extra just incase we can\u2019t find them again once the first one wears out."
+        },
+        {
+          "rating": 5,
+          "date": "2024-08-25",
+          "text": "Most Beloved Toy Thank you so much for this gift for our dog food purchase. Our youngest Dachshund girl has never had her own toy. She has always shared existing toys with her siblings. When this gift came home she grabbed it and claimed it as her very own. She is very protective of it."
+        }
+      ]
+    },
+    {
+      "sku": "132334",
+      "name": "Pisces Laboratories Premium Tropical Fish Flake 24g",
+      "brand": "Pisces Laboratories",
+      "price": 13.25,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.5,
+      "review_count": 12,
+      "url": "https://www.petbarn.com.au/p/pisces-laboratories-premium-tropical-fish-flake-24g",
+      "description": "Buy Pisces Laboratories Premium Tropical Fish Flake 24g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:49:51.703737+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2025-08-03",
+          "text": "My angels love this food I purchased  this food for my angel fish."
+        }
+      ]
+    },
+    {
+      "sku": "133435",
+      "name": "Hill's Prescription Diet t/d Small Bites Dental Care Dry Dog Food 2.25kg",
+      "brand": "Hill's Prescription Diet",
+      "price": 63.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.4583,
+      "review_count": 72,
+      "url": "https://www.petbarn.com.au/p/hill-s-prescription-diet-t-d-dent-care-sm-bt-adult-dog-food-2-25kg",
+      "description": "Buy Hill's Prescription Diet T/D Dent Care Sm Bt Adult Dog Food 2.25kg Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:50:08.836464+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 4,
+          "date": "2026-04-03",
+          "text": "Darcy approval! Darcy appears to like these nibbles, that\u2019s a big plus. He is very fussy."
+        },
+        {
+          "rating": 5,
+          "date": "2025-05-19",
+          "text": "Delivered promptly Advised by vet to use this product . They love it.Delivered very promptly"
+        },
+        {
+          "rating": 5,
+          "date": "2025-02-17",
+          "text": "My Maggie loves these I always buy this product for my dog keeps her teeth clean and she loves it as do other dogs when they visit. Good for treats"
+        }
+      ]
+    },
+    {
+      "sku": "123329",
+      "name": "Royal Canin Maltese Dog Food 1.5kg",
+      "brand": "ROYAL CANIN",
+      "price": 48.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.8043,
+      "review_count": 46,
+      "url": "https://www.petbarn.com.au/p/royal-canin-maltese-dog-food-1-5kg",
+      "description": "Buy Royal Canin Maltese Dog Food 1.5kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:50:28.556191+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-05-11",
+          "text": "Yummy for their tummy My dogs absolutely love this food and won\u2019t eat any other"
+        },
+        {
+          "rating": 5,
+          "date": "2023-06-14",
+          "text": "Like a treat My 6 year old Maltese is a fussy eater. When I first got these a few months ago, he was so excited about them, as though they were treats. I was hoping to find a dry food he would enjoy without a wet food gravy on top. Using these biscuits as a dry food only dinner lasted a few days before we reverted back to dry food with a wet topping because he wasn't as excited about dinner time\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2023-06-14",
+          "text": "Great food for fussy dogs! I have a three year old maltese who is very fussy and was often having skin issues (red, itchy, flakey etc) i was recommended this food because of the higher levels of natural fatty acids which aids in sensitive skin. It's difficult to find something that will benefit her skin and coat that she also enjoys the flavour of. Not only does she love the food but her itchines\u2026"
+        }
+      ]
+    },
+    {
+      "sku": "137659",
+      "name": "Science Selective Forest Sticks Guinea Pig Treats 60g",
+      "brand": "Science Selective",
+      "price": 14.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.7778,
+      "review_count": 9,
+      "url": "https://www.petbarn.com.au/p/science-selective-forest-sticks-guinea-pig-treats-60g",
+      "description": "Buy Science Selective Forest Sticks Guinea Pig Treats 60g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:50:42.829390+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-04-04",
+          "text": "Good for bunnies, too. Even though I is bunny, not piggy, Mummo bought these. She thinx I will like, because her other bunny liked. She right, they delishus. Must work out way to get more..."
+        },
+        {
+          "rating": 5,
+          "date": "2025-07-31",
+          "text": "A winner I was looking for something crunchy and calming for one of our piggies that is stressed atm"
+        },
+        {
+          "rating": 5,
+          "date": "2024-02-18",
+          "text": "10 out of 10 recommend! Guinea pig approved!\r\nAll of my piggies love these treats, great for hand feeding to help bonding."
+        }
+      ]
+    },
+    {
+      "sku": "133049",
+      "name": "Seresto Flea & Tick Dog Collar Small",
+      "brand": "Seresto",
+      "price": 91.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.5455,
+      "review_count": 77,
+      "url": "https://www.petbarn.com.au/p/seresto-8-month-flea-4-month-tick-small-dog-collar",
+      "description": "Seresto Flea & Tick Collar for Small Dogs and Puppies up to 8 kg, Single Pack, Longest-lasting Protection, Odourless, Adjustable and Water-Resistant Dog Collar, 1 Pack. Seresto offers the longest-lasting flea & tick protection for dogs. It is an easy to use, odourless, water resistant dog collar that protects dogs from fleas and ticks for 8 months. Seresto harnesses innovative technology, allowin\u2026",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:50:55.918150+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-07-02",
+          "text": "Be aware DO NOT BUY. THIS did not protect my dog who was 7kg. He passed away due to a paralysis tick. The collar was brought in August 2025, he passed in November 2025, I'm not good on maths but something isn't adding up."
+        },
+        {
+          "rating": 4,
+          "date": "2025-01-02",
+          "text": "I will buy it every 8 months as it is recommended Very happy  he kept getting infested  I found one flea after washing him and putting it on very happy"
+        },
+        {
+          "rating": 5,
+          "date": "2024-08-28",
+          "text": "Better way to control Fleas & ticks I have lost 2 dogs in the past due to symptoms from chewable flea and tick control so a collar is the only way to go.  Also the fact it last 8 months is a bonus really which makes it cheaper in the long run."
+        }
+      ]
+    },
+    {
+      "sku": "134831",
+      "name": "Oxbow Apple & Banana Small Pet Treat 60g",
+      "brand": "Oxbow",
+      "price": 16.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.6667,
+      "review_count": 30,
+      "url": "https://www.petbarn.com.au/p/oxbow-apple-banana-small-pet-treat-60g",
+      "description": "Buy Oxbow Apple & Banana Small Pet Treat 60g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:51:13.218288+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-06-26",
+          "text": "\u2605\u2605\u2605\u2605\u2605 My Bunny Bunbun Loves these treats and I think there the best 1ns out there to give your loving bunnies"
+        },
+        {
+          "rating": 5,
+          "date": "2025-02-13",
+          "text": "Guinea Pig and Rabbit Approved! Love to buy these treats for my Rabbits and Guinea Pigs, they absolutely adore them! Plus they are SUPER healthy for your piggy/buns! Recommend anything Oxbow!"
+        },
+        {
+          "rating": 5,
+          "date": "2024-05-01",
+          "text": "Oxbow Apple & Banana Small Pet Treat 60g 'great for guinea pigs. my guineas pigs love them. '"
+        }
+      ]
+    },
+    {
+      "sku": "138794",
+      "name": "Hill's Prescription Diet r/d Weight Loss Dry Cat Food 3.9kg",
+      "brand": "Hill's Prescription Diet",
+      "price": 119.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.5075,
+      "review_count": 67,
+      "url": "https://www.petbarn.com.au/p/hills-presc-diet-r-d-weight-reduction-adult-cat-food-3-9kg",
+      "description": "Buy Hills Presc Diet R/D Weight Reduction Adult Cat Food 3.9kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:51:30.073662+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-08-21",
+          "text": "boris and Natasha love it This is Boris and Natasha.  Our mum buys this for us.  She says Natasha looks like a wombat, and the doctor says she is also plump.  Boris also likes the taste of this food.  He wants more, but is also on a strict diet."
+        },
+        {
+          "rating": 3,
+          "date": "2026-02-03",
+          "text": "My cat loves it but not losing weight. I first had my 15lb cat on the Hill's Metabolic for over a year and she didn't loose any weight. I started going to a new vet and was told that some cats gain weight on that brand which she did gain a 1/2 lb. So then, they recommended the R/D for my cat. It took her a while to get use to the new food but she doesn't complain now. I am disappointed as she has\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2023-12-11",
+          "text": "Great way to lose a few of those extra pounds As of today, I have not found a kitty treadmill to help my indoor Russian Blue kitty Kiki loose a few pounds. I was feeding her another dry food and noticed she was not her precious loving self. So I switched back to Prescription diet that my Vet recommended. Kiki is feeling and acting like the loving kitty that she is.\n                    In addition\u2026"
+        }
+      ]
+    },
+    {
+      "sku": "137417",
+      "name": "Leaps & Bounds Beef Large Breed Adult Dog Food 15kg",
+      "brand": "Leaps & Bounds",
+      "price": 91.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.7073,
+      "review_count": 82,
+      "url": "https://www.petbarn.com.au/p/leaps-bounds-beef-large-breed-adult-dog-food-15kg",
+      "description": "Buy Leaps & Bounds Beef Large Breed Adult Dog Food 15Kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:51:47.354097+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2025-03-18",
+          "text": "My two Heelers love this My two Heelers have been on this for over a year and they are fit and healthy and absolutely love it."
+        },
+        {
+          "rating": 5,
+          "date": "2024-12-24",
+          "text": "Scout loves this My dog loves the leaps & bounds products. I usually buy the chicken but this time we did a bit of variety. Bought 2 bags of the beef and 2 bags of the chicken."
+        },
+        {
+          "rating": 5,
+          "date": "2024-09-06",
+          "text": "Healthy option Great product, healthy option & excellent ingredients."
+        }
+      ]
+    },
+    {
+      "sku": "137703",
+      "name": "Wahl Slicker Dog Brush Small",
+      "brand": "Wahl",
+      "price": 41.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.4857,
+      "review_count": 35,
+      "url": "https://www.petbarn.com.au/p/wahl-slicker-dog-brush-small",
+      "description": "Buy Wahl Slicker Dog Brush Small for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 2,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:52:05.856196+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-02-28",
+          "text": "Wahl Slicker Dog Brush Small 'Not recommended. I replaced twice due to cleaning button not back on properly, ended up refunded and bought other brand(no cleaning button one) so much better!'"
+        },
+        {
+          "rating": 5,
+          "date": "2024-11-11",
+          "text": "Wahl slicker dog brush \ud83d\udc36 This Wahl slicker dog brush is great for my rough coat jack Russell.\r\nI bought my original one about 3 years ago and it has worn well. Time for a new one. They work well on cats and dogs to as our cat has the odd brush to! Great quality product."
+        },
+        {
+          "rating": 1,
+          "date": "2024-01-26",
+          "text": "Hair removing button fails I ended up having to throw this product out because over time, the hair removing function made the wire bristles get all bent out of shape and squashed between the brush. The gel handle also didn\u2019t work out, as my puppy bit it when she was really young and so the gel would keep oozing out. Would not recommend."
+        }
+      ]
+    },
+    {
+      "sku": "135608",
+      "name": "Ivory Coat Large Breed Grain Free Lamb Puppy Food 13kg",
+      "brand": "Ivory Coat",
+      "price": 177.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.375,
+      "review_count": 8,
+      "url": "https://www.petbarn.com.au/p/ivory-coat-grain-free-lg-brd-lamb-puppy-food-13kg",
+      "description": "Buy Ivory Coat Grain Free Large Breed Lamb Puppy Food 13kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:52:19.481190+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2025-11-14",
+          "text": "Ivory Coat puppy Grain free, best kibble money can buy. And delivered to my door. Just good wholesome food. I've done alot of research, look at the ingredients no ridiculous fillers and nasties. For this reason Ivory Coat is the only kibble I will buy. My dogs and puppies are happy healthy and love this stuff."
+        },
+        {
+          "rating": 1,
+          "date": "2025-11-14",
+          "text": "Ivory Coat Grain Free Large Breed Lamb Puppy Food 13kg 'Was a great dry food choice for our dogs but why have Ivory Coat removed coconut oil and added canola oil? Also,  your information panel still states the old ingredient list. '"
+        },
+        {
+          "rating": 5,
+          "date": "2025-11-14",
+          "text": "good Best food so far for my 10 month old puppy. We've tried her on advance, royal canin, black hawk and now Ivory coat. She does so much better on this food. She loves it, her coat looks great, more energy, and the food is Australian made with quality ingredients. Definitely worth trying if your looking for an all round quality dry feed."
+        }
+      ]
+    },
+    {
+      "sku": "132272",
+      "name": "Fido's Puppy & Kitten Fresh Spritzer Spray 125mL",
+      "brand": "Fido's",
+      "price": 17.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.7027,
+      "review_count": 37,
+      "url": "https://www.petbarn.com.au/p/fido-s-fresh-spritzer-spray-for-puppy-and-kitten-125ml",
+      "description": "Buy Fido's Fresh Spritzer Spray for Puppy and Kitten 125mL for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:52:36.993164+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-08-21",
+          "text": "She smells so good! Oh my goodness! This smells so delightful! I was recommended this by a work colleague and she wasn\u2019t wrong. My mini schnauzer can sometimes be a bit smelly (longer winter coat, wet dog smell), even after a bath and this helps tremendously. 10/10. Will buy again"
+        },
+        {
+          "rating": 4,
+          "date": "2025-04-08",
+          "text": "They smell better but makes one of them sneeze. Bought this to help my puppies smell a bit better as you shouldn\u2019t bath them more than once a month."
+        },
+        {
+          "rating": 5,
+          "date": "2024-09-30",
+          "text": "My pet smells so fresh I love this fragrance for my Puppies. They smell so nice and fresh."
+        }
+      ]
+    },
+    {
+      "sku": "29317",
+      "name": "Royal Canin Mini Breed Senior 8+ Dog Food 2kg",
+      "brand": "ROYAL CANIN",
+      "price": 50.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.7742,
+      "review_count": 62,
+      "url": "https://www.petbarn.com.au/p/royal-canin-mini-mature-plus-8-dog-food-2kg",
+      "description": "Buy Royal Canin Mini Mature Plus 8 Dog Food 2kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:52:53.299053+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-09-05",
+          "text": "My girls love this This product suits my chihuahua and my silky terrier. It's size is good for both and I don't mind that the younger dog has a lower fat content in It's diet also."
+        },
+        {
+          "rating": 5,
+          "date": "2026-02-09",
+          "text": "The fussy old dog! I have a very fussy older dog who only likes to graze on food. This product was perfect as it is small and snack size."
+        },
+        {
+          "rating": 5,
+          "date": "2024-05-16",
+          "text": "Kibble of choice! My Pandi loves his Royal Canin!"
+        }
+      ]
+    },
+    {
+      "sku": "125827",
+      "name": "Vetalogica VitaRapid Tranquil Dog Treat 210g",
+      "brand": "Vetalogica",
+      "price": 15.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.3545,
+      "review_count": 110,
+      "url": "https://www.petbarn.com.au/p/vetalogica-vitarapid-tranquil-dog-treat-210g",
+      "description": "Buy Vetalogica VitaRapid Tranquil Dog Treat 210g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:53:09.741598+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-08-12",
+          "text": "Did not make one bit of difference.\nLiterally, probably a nice treat\nExpensive\nIneffective\nI have a q7kg Border Collie. Tired 2 pieces in the morning for a week, tried 2 pieces in the evening for a week, tried one piece in the morning and one in the vening evening. \nDid not make the slightest difference."
+        },
+        {
+          "rating": 5,
+          "date": "2026-03-24",
+          "text": "Vita raplid calming treats Rosie does calm down a little"
+        },
+        {
+          "rating": 5,
+          "date": "2026-01-17",
+          "text": "Such a difference! Absolutely recommend! My Maltipoo has quite bad anxiety outdoors and with men. These treats have really helped calm her nerves and relax. Without causing sleepiness it takes the edge off so that going outdoors is something she enjoys now and now she has enough calm to build her confidence around men. I'd definitely recommend this product. I've tried them all with her and she lo\u2026"
+        }
+      ]
+    },
+    {
+      "sku": "132350",
+      "name": "Pisces Laboratories Micro Pellet 30g",
+      "brand": "Pisces Laboratories",
+      "price": 15.5,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": null,
+      "review_count": 1,
+      "url": "https://www.petbarn.com.au/p/pisces-laboratories-micro-pellet-30g",
+      "description": "Buy Pisces Laboratories Micro Pellet 30g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 0
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:53:26.526377+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 4,
+          "date": "2024-10-03",
+          "text": "This fish food was great I bought this for my fish"
+        }
+      ]
+    },
+    {
+      "sku": "125527",
+      "name": "Royal Canin Cocker Spaniel Dog Food 3kg",
+      "brand": "ROYAL CANIN",
+      "price": 62.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.8143,
+      "review_count": 70,
+      "url": "https://www.petbarn.com.au/p/royal-canin-cocker-spaniel-dog-food-3kg",
+      "description": "Buy Royal Canin Cocker Spaniel Dog Food - 3kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:53:42.902082+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 4,
+          "date": "2026-08-09",
+          "text": "Tailored dog food [This review was collected as part of a promotion.] I love that this product is catered specifically to the needs of my breed of dog but I did find that the kibble is slightly too big for my dog who is on the smaller side for the breed. Unfortunately despite the quality and benefits, my dog isn\u2019t too fussed over the flavour of this food - she does eat it but she seems to not rus\u2026"
+        },
+        {
+          "rating": 3,
+          "date": "2026-08-04",
+          "text": "My dog loves it, but I don\u2019t love the ingredients [This review was collected as part of a promotion.] My dog absolutely loves this food and seems to prefer it much more than her usual kibble. She enjoys eating it and it doesn\u2019t upset her stomach, which for our dog is a huge plus! However, I\u2019m not overly impressed with the ingredients, as it seems quite heavy on rice and maize and doesn\u2019t contain\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2025-01-24",
+          "text": "My pet loves this product My dog was raised on this product, he started with puppy and progressed to adult royal canin. He loves it\ud83d\udc99"
+        }
+      ]
+    },
+    {
+      "sku": "132366",
+      "name": "Paragard Allwormer For Medium Dogs 4pk",
+      "brand": "Paragard",
+      "price": 38.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.5484,
+      "review_count": 31,
+      "url": "https://www.petbarn.com.au/p/paragard-allwormer-tablets-for-medium-dogs-4-tablets",
+      "description": "Buy Paragard Allwormer Tablets For Medium Dogs 4 Tablets for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:53:58.627895+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-05-08",
+          "text": "Trusted allwormer This has been my trusted allwormer for my toy cavoodle. No issue so far. She is 2 years old now."
+        },
+        {
+          "rating": 5,
+          "date": "2025-03-12",
+          "text": "Good value worm tablets I bought these worm tabs for my dog for next year. She has had them before with no problems."
+        },
+        {
+          "rating": 3,
+          "date": "2025-01-27",
+          "text": "Will not take it anyway. Sure that product would be great if dogs swallowed them or ate food with crushed tablet in it. Smell and leave all. Sad."
+        }
+      ]
+    },
+    {
+      "sku": "132342",
+      "name": "Pisces Laboratories Premium Goldfish Flake 100g",
+      "brand": "Pisces Laboratories",
+      "price": 29.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.5833,
+      "review_count": 12,
+      "url": "https://www.petbarn.com.au/p/pisces-laboratories-premium-goldfish-flake-100g",
+      "description": "Buy Pisces Laboratories Premium Goldfish Flake 100g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:54:18.509344+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-07-18",
+          "text": "My Recent Petbarn Trip The Pisces laboratories premium goldfish flakes are great flakes for my goldfish.\r\nMy 2 goldfish (Their names are Marv and Harvey) and they love their goldfish flakes and every morning when I go to feed them they are at the top of the tank swimming happily to get their goldfish flakes. I like these goldfish flakes for food for my goldfish and I would recommend these goldfis\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2026-05-29",
+          "text": "Fish flakes Got this for my gold fish them enjoy eating it and it keeps my tank cleaner for longer great buying"
+        },
+        {
+          "rating": 4,
+          "date": "2024-08-29",
+          "text": "My fish like this brand of food. My fish like this fish food. The flakes are broken up small enough for them to eat it more easily."
+        }
+      ]
+    },
+    {
+      "sku": "133033",
+      "name": "Drontal Cat All Wormer up to 4kg 2pk",
+      "brand": "Drontal",
+      "price": 37.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": null,
+      "review_count": 0,
+      "url": "https://www.petbarn.com.au/p/drontal-cat-all-wormer-4kg-2-tab",
+      "description": "Buy Drontal Cat All Wormer 4kg 2 Tab for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {},
+      "sentiment": {},
+      "scraped_at": "2026-09-07T19:54:32.474073+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": []
+    },
+    {
+      "sku": "120204",
+      "name": "Peckish Rabbit & Guinea Pig Food Mix 3kg",
+      "brand": "Peckish",
+      "price": 18.99,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.625,
+      "review_count": 8,
+      "url": "https://www.petbarn.com.au/p/nature-s-best-guinea-pig-rabbit-mix-3kg",
+      "description": "Buy Peckish Rabbit & Guinea Pig Food Mix 3kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:55:14.543402+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-02-16",
+          "text": "Happy Piggys My Piggys really liked this one \ud83d\udc4d"
+        }
+      ]
+    },
+    {
+      "sku": "132312",
+      "name": "Pisces Laboratories Slim Hanging Filter SH100",
+      "brand": "Pisces Laboratories",
+      "price": 59.5,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.0,
+      "review_count": 5,
+      "url": "https://www.petbarn.com.au/p/pisces-laboratories-slim-hanging-filter-sh100",
+      "description": "Buy Pisces Laboratories Slim Hanging Filter SH100 for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:55:27.372607+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-05-14",
+          "text": "Pisces Laboratories Slim Hanging Filter SH100 'it was amazing'"
+        },
+        {
+          "rating": 1,
+          "date": "2026-03-16",
+          "text": "Waste of money. Worst filter i have ever used. My second one just died and not even a year old. I began having issues after the first two weeks, it starts out great but once it goes downhill theres no saving it."
+        },
+        {
+          "rating": 5,
+          "date": "2026-01-14",
+          "text": "Happy with purchasr Great filter"
+        }
+      ]
+    },
+    {
+      "sku": "132364",
+      "name": "Paragard Allwormer Tablets For Cats and Kittens 4 Pack",
+      "brand": "Paragard",
+      "price": 35.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.2857,
+      "review_count": 14,
+      "url": "https://www.petbarn.com.au/p/paragard-cat-allwormer-tablets-4-pack",
+      "description": "Buy Paragard Cat Allwormer Tablets 4 Pack for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 2,
+        "4": 0,
+        "5": 1
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:55:39.754159+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 3,
+          "date": "2026-04-14",
+          "text": "Product was more expensive than in supermarket the staff service was good, the product was $10 more expensive than the one sold in the supermarket unfortunately."
+        },
+        {
+          "rating": 3,
+          "date": "2025-10-28",
+          "text": "Dogs loved it but I had to give it to my cats as they know what it is \ud83d\ude01 I bought these products for my furbabies. Was happy with them . Only issue was that the kitten had worms and vomited but he\u2019s all good now. Had to be redone in 2 weeks :) was fine after that"
+        },
+        {
+          "rating": 5,
+          "date": "2025-10-08",
+          "text": "I find it easy to administer Great product as a Natural Therapist I don\u2019t want to overtreat. Heart worm not necessary for my indoor cats & this product treats  the worms that are necessary"
+        }
+      ]
+    },
+    {
+      "sku": "136730",
+      "name": "Daily Bark Meaty Roo Training Bites Dog Treat 300g",
+      "brand": "Daily Bark",
+      "price": 17.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.7045,
+      "review_count": 44,
+      "url": "https://www.petbarn.com.au/p/daily-bark-meaty-roo-training-dog-treat-drops-300g",
+      "description": "Buy Daily Bark Meaty Roo Training Bites Dog Treat 300g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:55:53.053606+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-09-06",
+          "text": "My little boy loves them and he had lost weight win win"
+        },
+        {
+          "rating": 5,
+          "date": "2026-03-08",
+          "text": "High value everyday treat. We are on our 2nd lot of Bark treats and would highly recommend to any owner and every dog."
+        },
+        {
+          "rating": 5,
+          "date": "2025-06-19",
+          "text": "My dog loves this product! I have been buying this product for a long time now, and my dog loves them. So does every other dog we come across on our daily walks."
+        }
+      ]
+    },
+    {
+      "sku": "127982",
+      "name": "Vella Free Range Poultry Layer Pellet 20kg",
+      "brand": "Vella",
+      "price": 30.49,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.5802,
+      "review_count": 81,
+      "url": "https://www.petbarn.com.au/p/vella-free-range-poultry-layer-pellet-20kg",
+      "description": "Buy Vella Free Range Poultry Layer Pellet 20kg for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 0.3333,
+        "neutral": 0.3333,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:56:06.507297+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-04-15",
+          "text": "Its all grain mash pellets, processed feed. My hens didn't like this at all."
+        },
+        {
+          "rating": 5,
+          "date": "2025-02-08",
+          "text": "Fishing Berley! I actually brought this for fishing, 20 kg gets you two full 20L buckets full of berley, 1L of tuna oil each bucket, job done."
+        },
+        {
+          "rating": 5,
+          "date": "2024-10-30",
+          "text": "Quality pellets Been using this for over three years now, works well for birds with access to larger area to forage for insects and greens."
+        }
+      ]
+    },
+    {
+      "sku": "137684",
+      "name": "Mix Or Match 30 Elephant & Hippo Dog Pillow 35cm",
+      "brand": "Mix Or Match 30",
+      "price": 20.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.4167,
+      "review_count": 24,
+      "url": "https://www.petbarn.com.au/p/mix-or-match-30-elephant-hippo-dog-pillow-35cm",
+      "description": "Shop Mix Or Match Elephant & Hippo Dog Pillow your pet will adore \u0096 enjoy our Price Match Guarantee and Same-Day Delivery. Explore now at Petbarn!",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:56:20.094721+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-08-26",
+          "text": "Mix Or Match 30 Elephant & Hippo Dog Pillow 35cm UNSAFE - took back to store after my dog got claw stuck in mesh base. I had to cut around paw to release.Doesn't even rate a star but had to to ensure this message got out'"
+        },
+        {
+          "rating": 5,
+          "date": "2026-03-02",
+          "text": "My pet loves this toy This elephant is our grand doggie\u2019s favourite toy. She\u2019s on her 4th one now at 6 years old. She loves it to bits"
+        },
+        {
+          "rating": 5,
+          "date": "2026-03-02",
+          "text": "My pet loves this product We purchase several \"Eli the Elephant\" toys a year for our Goldie, she loves them!"
+        }
+      ]
+    },
+    {
+      "sku": "131871",
+      "name": "Chuckit Amphibious Zipflight Flyer Dog Toy M",
+      "brand": "Chuckit",
+      "price": 32.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.1064,
+      "review_count": 47,
+      "url": "https://www.petbarn.com.au/p/chuckit-flyer-zipflight-medium",
+      "description": "Buy Chuckit Amphibious Zipflight Flyer Dog Toy M for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:56:33.236141+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2024-12-25",
+          "text": "Didn't last 1 day Chuckit......in the bin after 1 day it was already falling apart.   Ok if this was a cheap toy but 30 bucks you'd expect at least a week of use?   Terrible value."
+        },
+        {
+          "rating": 5,
+          "date": "2024-03-05",
+          "text": "Our dog loves this toy! Charlie loves to fetch frisbees, however, he has a hard time picking them up from the ground, and after constant usage, a plastic frisbee begins to break apart around the edges. \r\n\r\nThis product works great because it has a raised rubber ring around the outer edge and an opening in the center that makes it easy for dogs to pick up from the ground. \r\n\r\nIts fabric and foam d\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2024-03-05",
+          "text": "Perfect frisbee size for YOU! YOU absolutely loves his Chuck-it!!! Perfect size for a lil guy to retrieve! The hole sometimes allows him to look through the center when retrieving depending on how he picks it up in his mouth. Genius! Light, durable and provides a lifetime of FUN!"
+        }
+      ]
+    },
+    {
+      "sku": "132768",
+      "name": "GREENIES Canine Dental Dog Treats Blueberry Teenie 340g",
+      "brand": "Greenies",
+      "price": 36.5,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 4.6795,
+      "review_count": 440,
+      "url": "https://www.petbarn.com.au/p/greenies-bursting-blue-berry-treat-teenie-340g",
+      "description": "Buy Greenies Bursting Blue Berry Treat Teenie 340g for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 2
+      },
+      "sentiment": {
+        "positive": 1.0,
+        "neutral": 0.0,
+        "negative": 0.0
+      },
+      "scraped_at": "2026-09-07T19:56:46.856082+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 5,
+          "date": "2026-07-08",
+          "text": "I helped out with Foster dogs. I also have some of my own and every dog I have had through here loves Greenies! My pug Boston Terrier in particular loves the blueberry ones. I was really concerned with him because he has a major under by in some really weird shaped teeth because of his mix. He will not let me brush his teeth at all. His teeth are so oddly shaped at first of that didn't know how h\u2026"
+        },
+        {
+          "rating": 5,
+          "date": "2024-12-26",
+          "text": "My dog loves this product. I bought \u201cBLACKDOG naturally good treats\u201d and my dog loves them. I feel my dog is getting a healthy choice for her age of thirteen."
+        },
+        {
+          "rating": 4,
+          "date": "2024-08-22",
+          "text": "My girl likes the new treats. Very happy with this product."
+        }
+      ]
+    },
+    {
+      "sku": "127399",
+      "name": "PetSafe Vibration Bark Control Dog Collar",
+      "brand": "PetSafe",
+      "price": 191.0,
+      "currency": "AUD",
+      "availability": "https://schema.org/InStock",
+      "rating_value": 3.0,
+      "review_count": 51,
+      "url": "https://www.petbarn.com.au/p/petsafe-dog-collar-vibration-bark-control-1-pack",
+      "description": "Buy PetSafe Dog Collar Vibration Bark Control 1 Pack for your pet. Shop online with Petbarn today.",
+      "rating_distribution": {
+        "1": 3,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "sentiment": {
+        "positive": 0.6667,
+        "neutral": 0.0,
+        "negative": 0.3333
+      },
+      "scraped_at": "2026-09-07T19:57:00.938166+00:00",
+      "source_type": "petbarn_snapshot",
+      "reviews": [
+        {
+          "rating": 1,
+          "date": "2026-08-23",
+          "text": "- We've got 3 dogs of varying sizes and spent a small fortune buying a collar for each of them.We've had about 8 or 9 collars now. None of them have lasted more than 3 months before the seal goes or something else fails. Petsafe had been great at sending new ones within the 3 month period and their barking was cured  (after many replacements).  Our dogs recently started barking again. We pulled o\u2026"
+        },
+        {
+          "rating": 1,
+          "date": "2026-01-27",
+          "text": "Not convinced it it works There are better ones in the market. This is not rechargeable and specialized lithium batteries which makes replacing just that little bit more difficult. \n\nI was not convinced it was even working out of test mode. I only felt it only vibrated once while trying. My dog kept barking despite knowing that vibrating collars work on him. \n\nThe switch to turn this on and off i\u2026"
+        },
+        {
+          "rating": 1,
+          "date": "2026-01-27",
+          "text": "Very good This product is false doesn't work and also you have to buy special battery's for this product i will never purchase or recommend anyone to purchase this product"
         }
       ]
     }

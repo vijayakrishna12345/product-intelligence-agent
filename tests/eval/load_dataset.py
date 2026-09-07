@@ -17,6 +17,10 @@ def load_conversational_goldens() -> list[dict[str, Any]]:
     return json.loads((EVAL_DIR / "conversational_goldens.json").read_text(encoding="utf-8"))
 
 
+def load_difficult_goldens() -> list[dict[str, Any]]:
+    return json.loads((EVAL_DIR / "difficult_goldens.json").read_text(encoding="utf-8"))
+
+
 def as_deepeval_goldens():
     from deepeval.dataset import Golden
     from deepeval.test_case import ToolCall
