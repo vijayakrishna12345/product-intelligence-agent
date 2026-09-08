@@ -22,7 +22,7 @@ page = st.navigation(
         "Observability": [
             st.Page(
                 render_usage,
-                title="Context & usage",
+                title="Usage & execution",
                 icon="📊",
                 url_path="usage",
             ),

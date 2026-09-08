@@ -13,7 +13,7 @@ from pia.ui.stores import get_stores
 
 def render_usage() -> None:
     chats, runs, _catalog, _runner = get_stores()
-    st.title("Context, tools, and usage")
+    st.title("Usage & Execution")
     st.caption(
         "Telemetry for conversations opened in this browser. "
         "Token splits that Groq does not provide use a len/4 heuristic."

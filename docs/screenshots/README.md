@@ -14,7 +14,7 @@ Requires the app on `http://localhost:8501`. `chat-response.png` submits a live 
 | Chat (empty) | [chat.png](chat.png) |
 | Chat (agent response) | [chat-response.png](chat-response.png) |
 | Crawled catalog | [catalog.png](catalog.png) |
-| Context, tools, and usage | [usage.png](usage.png) |
+| Usage & execution | [usage.png](usage.png) |
 | About | [about.png](about.png) |
 
 ## Previews
@@ -31,7 +31,7 @@ Requires the app on `http://localhost:8501`. `chat-response.png` submits a live 
 
 ![Crawled catalog browser](catalog.png)
 
-### Context, tools, and usage
+### Usage & execution
 
 ![Token and tool usage](usage.png)
 

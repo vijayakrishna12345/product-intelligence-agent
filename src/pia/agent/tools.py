@@ -182,9 +182,10 @@ def build_tools(catalog, comparison, settings: Settings | None = None) -> list:
             get_product_details,
             name="get_product_details",
             description=(
-                "Get snapshot details for one clearly named catalog product: price, rating, "
-                "SKU, and related fields. Use when the user names a specific product or "
-                "challenges a stated price or rating. Not for broad brands or unknown products."
+                "Get snapshot details for one clearly named catalog product that is already "
+                "known to exist: price, rating, SKU, and related fields. Use when the user "
+                "names a specific catalog product or challenges a stated price or rating. "
+                "Not for broad brands, fictional names, or unknown products — use search_catalog."
             ),
             args_schema=ProductArgs,
         ),
