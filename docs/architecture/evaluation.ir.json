@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "PIA Evaluation Harness",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "viewBox": [1200, 720],
+    "views": [
+      {
+        "id": "release-gate",
+        "label": "Release gate",
+        "focus": ["check_ready", "release_pytest", "difficult", "run_query", "deterministic"],
+        "note": "check_ready runs pytest -m release when GROQ_API_KEY is set."
+      },
+      {
+        "id": "eval-judge",
+        "label": "LLM-judged eval",
+        "focus": ["eval_pytest", "goldens", "groq_judge", "results"],
+        "note": "Single-turn goldens scored with GroqJudge and DeepEval."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "check_ready",
+      "type": "backend",
+      "label": "check_ready",
+      "sublabel": "check_ready.py",
+      "pos": [40, 300],
+      "size": [140, 64]
+    },
+    {
+      "id": "secret_scan",
+      "type": "security",
+      "label": "Secret scan",
+      "sublabel": "tracked files",
+      "pos": [220, 300],
+      "size": [140, 64]
+    },
+    {
+      "id": "catalog",
+      "type": "backend",
+      "label": "Catalog check",
+      "sublabel": "non-empty repo",
+      "pos": [400, 300],
+      "size": [140, 64]
+    },
+    {
+      "id": "release_pytest",
+      "type": "security",
+      "label": "pytest release",
+      "sublabel": "-m release",
+      "pos": [600, 180],
+      "size": [150, 64],
+      "tag": "12 cases"
+    },
+    {
+      "id": "difficult",
+      "type": "database",
+      "label": "difficult_goldens",
+      "sublabel": "JSON dataset",
+      "pos": [800, 180],
+      "size": [160, 64]
+    },
+    {
+      "id": "eval_pytest",
+      "type": "backend",
+      "label": "pytest eval",
+      "sublabel": "-m eval",
+      "pos": [600, 420],
+      "size": [150, 64],
+      "tag": "21 cases"
+    },
+    {
+      "id": "goldens",
+      "type": "database",
+      "label": "goldens.json",
+      "sublabel": "single-turn",
+      "pos": [800, 420],
+      "size": [150, 64]
+    },
+    {
+      "id": "run_query",
+      "type": "backend",
+      "label": "run_query",
+      "sublabel": "factory.py",
+      "pos": [600, 300],
+      "size": [150, 64],
+      "tag": "sample"
+    },
+    {
+      "id": "deterministic",
+      "type": "security",
+      "label": "Deterministic",
+      "sublabel": "no LLM judge",
+      "pos": [800, 300],
+      "size": [150, 64]
+    },
+    {
+      "id": "groq_judge",
+      "type": "cloud",
+      "label": "GroqJudge",
+      "sublabel": "DeepEval metrics",
+      "pos": [1000, 420],
+      "size": [150, 64]
+    },
+    {
+      "id": "results",
+      "type": "database",
+      "label": "eval/results",
+      "sublabel": "*.json gitignored",
+      "pos": [1000, 300],
+      "size": [150, 64]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Offline pytest harness",
+      "wraps": [
+        "check_ready",
+        "secret_scan",
+        "catalog",
+        "release_pytest",
+        "eval_pytest",
+        "difficult",
+        "goldens",
+        "run_query",
+        "deterministic",
+        "groq_judge",
+        "results"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "start-scan",
+      "from": "check_ready",
+      "to": "secret_scan",
+      "variant": "emphasis"
+    },
+    {
+      "id": "scan-catalog",
+      "from": "secret_scan",
+      "to": "catalog"
+    },
+    {
+      "id": "catalog-release",
+      "from": "catalog",
+      "to": "release_pytest",
+      "label": "GROQ set",
+      "variant": "security",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "release-data",
+      "from": "release_pytest",
+      "to": "difficult",
+      "variant": "emphasis"
+    },
+    {
+      "id": "data-agent",
+      "from": "difficult",
+      "to": "run_query",
+      "label": "cases",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "agent-assert",
+      "from": "run_query",
+      "to": "deterministic",
+      "label": "tools + answer",
+      "labelDy": 56
+    },
+    {
+      "id": "assert-out",
+      "from": "deterministic",
+      "to": "results",
+      "label": "difficult_latest",
+      "variant": "emphasis",
+      "labelDy": 56
+    },
+    {
+      "id": "catalog-eval",
+      "from": "catalog",
+      "to": "eval_pytest",
+      "label": "optional",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "eval-data",
+      "from": "eval_pytest",
+      "to": "goldens",
+      "variant": "emphasis"
+    },
+    {
+      "id": "goldens-agent",
+      "from": "goldens",
+      "to": "run_query",
+      "label": "shared agent",
+      "variant": "dashed",
+      "fromSide": "left",
+      "toSide": "bottom"
+    },
+    {
+      "id": "agent-judge",
+      "from": "run_query",
+      "to": "groq_judge",
+      "label": "retrieval",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "left"
+    },
+    {
+      "id": "judge-out",
+      "from": "groq_judge",
+      "to": "results",
+      "label": "latest.json",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "Release gate",
+      "items": [
+        "12 difficult cases: refusal, tool limits, grounding traps",
+        "Deterministic asserts only; blocks pre-push when GROQ is set"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Eval + conversation",
+      "items": [
+        "pytest -m eval scores 21 goldens with GroqJudge metrics",
+        "pytest -m conversation runs ConversationSimulator + attack graphs"
+      ]
+    },
+    {
+      "dot": "orange",
+      "title": "Isolation",
+      "items": [
+        "Harness calls run_query directly, not Streamlit AgentRunner",
+        "DATA_MODE=sample; telemetry never feeds prompts or tool choice"
+      ]
+    }
+  ]
+}

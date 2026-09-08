@@ -91,6 +91,7 @@ def build_tools(catalog, comparison, settings: Settings | None = None) -> list:
                     "rating_value": item.rating_value,
                     "review_count": item.review_count,
                     "source_type": item.source_type,
+                    "scraped_at": item.scraped_at.isoformat() if item.scraped_at else None,
                 }
                 for item in hits
             ],
@@ -169,16 +170,22 @@ def build_tools(catalog, comparison, settings: Settings | None = None) -> list:
             search_catalog,
             name="search_catalog",
             description=(
-                "Search the ingested catalog by name, brand, or SKU. "
+                "Search the ingested catalog by name, brand, or SKU for discovery, filters, "
+                "aggregates, and existence checks on unknown or fictional products. "
                 "Optional max_price, species, sort_by (rating/price/reviews/name), "
-                "and limit support top-rated, cheapest, and filtered lists."
+                "and limit support top-rated, cheapest, and filtered lists. "
+                "Returns summary fields (price, rating) per match."
             ),
             args_schema=SearchArgs,
         ),
         StructuredTool.from_function(
             get_product_details,
             name="get_product_details",
-            description="Get snapshot details for one catalog product.",
+            description=(
+                "Get snapshot details for one clearly named catalog product: price, rating, "
+                "SKU, and related fields. Use when the user names a specific product or "
+                "challenges a stated price or rating. Not for broad brands or unknown products."
+            ),
             args_schema=ProductArgs,
         ),
         StructuredTool.from_function(

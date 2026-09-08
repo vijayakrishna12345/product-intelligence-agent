@@ -118,6 +118,38 @@ def _submit_prompt(runner, chat_id: UUID, prompt: str, settings) -> None:
         st.error(str(exc))
 
 
+def _queue_followup(chat_id: UUID, question: str) -> None:
+    bag = st.session_state.setdefault("used_followups", {})
+    prior = list(bag.get(str(chat_id), []))
+    prior.append(question)
+    bag[str(chat_id)] = prior
+    st.session_state.used_followups = bag
+    st.session_state.pending_submit = (str(chat_id), question)
+
+
+def _maybe_refresh_catalog(catalog) -> None:
+    path = catalog._repository._catalog_path  # noqa: SLF001 — UI-only mtime check
+    try:
+        mtime = path.stat().st_mtime
+    except OSError:
+        return
+    key = "catalog_snapshot_mtime"
+    if st.session_state.get(key) != mtime:
+        catalog.refresh()
+        st.session_state[key] = mtime
+
+
+def _has_older_messages(chats: ChatRepository, chat_id: UUID, oldest_sequence: int) -> bool:
+    cache_key = f"has_older_{chat_id}_{oldest_sequence}"
+    cached = st.session_state.get(cache_key)
+    if cached is not None:
+        return bool(cached)
+    probe = chats.list_messages(chat_id, before_sequence=oldest_sequence, limit=1)
+    has_older = bool(probe)
+    st.session_state[cache_key] = has_older
+    return has_older
+
+
 def _reveal_flag(kind: str, turn_id: UUID) -> bool:
     flags: dict[str, bool] = st.session_state.setdefault(f"reveal_{kind}", {})
     return bool(flags.get(str(turn_id)))
@@ -158,7 +190,14 @@ def render_chat() -> None:
 def _render_chat() -> None:
     settings = get_settings()
     chats, runs, catalog, runner = get_stores()
-    catalog.refresh()
+    chat_id = _ensure_chat(chats)
+    pending = st.session_state.pop("pending_submit", None)
+    if pending and runner is not None:
+        pending_chat_id, pending_text = pending
+        if pending_chat_id == str(chat_id) and pending_text.strip():
+            _submit_prompt(runner, chat_id, pending_text.strip(), settings)
+            return
+    _maybe_refresh_catalog(catalog)
     runs.fail_stale_runs(settings.agent_run_stale_seconds)
     st.title("Chat")
     st.caption("Ask about products, reviews, and comparisons in the ingested catalog.")
@@ -213,11 +252,15 @@ def _render_chat() -> None:
     page = chats.list_messages(chat_id, limit=settings.chat_page_size)
     extras = st.session_state.extra_messages
     oldest = extras[0] if extras else (page[0] if page else None)
-    if oldest and st.button("Load older"):
+    show_load_older = bool(
+        oldest and _has_older_messages(chats, chat_id, oldest.sequence_no)
+    )
+    if show_load_older and st.button("Load older"):
         older = chats.list_messages(
             chat_id, before_sequence=oldest.sequence_no, limit=settings.chat_page_size
         )
         st.session_state.extra_messages = older + extras
+        st.session_state.pop(f"has_older_{chat_id}_{oldest.sequence_no}", None)
         st.rerun()
     messages = st.session_state.extra_messages + page
     seen: set[UUID] = set()
@@ -251,6 +294,11 @@ def _render_chat() -> None:
         for item in products[:30]
         if item.name
     ]
+    catalog_scraped_at = (
+        products[0].scraped_at.isoformat()
+        if products and products[0].scraped_at
+        else None
+    )
     for turn_id in turn_order:
         rows = by_turn[turn_id]
         users = [row for row in rows if row.role == "user"]
@@ -269,13 +317,18 @@ def _render_chat() -> None:
                 payloads.append(parsed)
         if assistants:
             with st.chat_message("assistant"):
-                st.write(assistants[-1].content)
+                assistant_text = assistants[-1].content
+                st.write(assistant_text)
                 user_text = users[0].content if users else ""
                 show_charts = asked_for_charts(user_text) or _reveal_flag("charts", turn_id)
                 show_sources = asked_for_sources(user_text) or _reveal_flag("sources", turn_id)
                 if show_charts:
                     _render_tool_visuals(payloads)
-                caption = sources_caption(payloads)
+                caption = sources_caption(
+                    payloads,
+                    assistant_text=assistant_text,
+                    catalog_scraped_at=catalog_scraped_at,
+                )
                 if show_sources and caption:
                     st.info(caption)
                 if turn_id == last_completed and not (
@@ -293,27 +346,27 @@ def _render_chat() -> None:
                             if cols[1].button(source_label, key=f"reveal-sources-{turn_id}"):
                                 _set_reveal("sources", turn_id, not show_sources)
                                 st.rerun()
-                    asked = [row.content for row in ordered if row.role == "user"]
                     used = (st.session_state.get("used_followups") or {}).get(str(chat_id), [])
+                    asked = list(used)
+                    if user_text:
+                        asked.append(user_text)
                     followups = suggest_followups(
                         payloads,
+                        user_text=user_text,
+                        assistant_text=assistant_text,
                         catalog_products=catalog_products,
-                        asked=asked + list(used),
+                        asked=asked,
                     )
                     if followups:
                         st.markdown("**Suggested follow-ups**")
                         for index, question in enumerate(followups):
-                            if st.button(
+                            st.button(
                                 question,
                                 key=f"followup-{turn_id}-{index}",
                                 width="stretch",
-                            ):
-                                bag = st.session_state.setdefault("used_followups", {})
-                                prior = list(bag.get(str(chat_id), []))
-                                prior.append(question)
-                                bag[str(chat_id)] = prior
-                                st.session_state.used_followups = bag
-                                _submit_prompt(runner, chat_id, question, settings)
+                                on_click=_queue_followup,
+                                args=(chat_id, question),
+                            )
 
     busy = active is not None and active.status in {"queued", "running"}
     prompt = st.chat_input("Ask about catalog products", disabled=busy)

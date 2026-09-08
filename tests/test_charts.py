@@ -25,6 +25,26 @@ def test_sources_caption_petbarn_snapshot():
     assert "SKU: ABC" in caption
 
 
+def test_sources_caption_filters_to_answer_products():
+    caption = sources_caption(
+        [
+            {
+                "match_count": 8,
+                "matches": [
+                    {"name": "Hikari Cichlid Gold", "sku": "99936", "source_type": "petbarn_snapshot"},
+                    {"name": "Advance Indoor Cat Food", "sku": "140242", "source_type": "petbarn_snapshot"},
+                    {"name": "Royal Canin Dog Food", "sku": "138211", "source_type": "petbarn_snapshot"},
+                ],
+            }
+        ],
+        assistant_text="Advance Indoor Cat Food leads the list at 4.8 stars.",
+        catalog_scraped_at="2026-09-07",
+    )
+    assert "Advance Indoor Cat Food" in caption
+    assert "Hikari" not in caption
+    assert "Catalog snapshot: 2026-09-07" in caption
+
+
 def test_sources_caption_compare_lists_skus():
     caption = sources_caption(
         [

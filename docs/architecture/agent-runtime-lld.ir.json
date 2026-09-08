@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "PIA Agent Runtime LLD",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "viewBox": [1280, 720],
+    "views": [
+      {
+        "id": "prompt-cache",
+        "label": "Prompt cache",
+        "focus": ["context", "runner", "agent", "groq"],
+        "note": "Static SYSTEM_PROMPT prefixes Groq calls; cached_tokens are write-only."
+      },
+      {
+        "id": "middleware-tools",
+        "label": "Middleware + tools",
+        "focus": ["middleware", "tools", "services"],
+        "note": "Four middleware layers wrap model and tool calls before CatalogService."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "context",
+      "type": "backend",
+      "label": "build_context",
+      "sublabel": "4 turns / 6k tok",
+      "pos": [210, 300],
+      "size": [150, 64]
+    },
+    {
+      "id": "runner",
+      "type": "backend",
+      "label": "AgentRunner",
+      "sublabel": "worker thread",
+      "pos": [400, 300],
+      "size": [140, 64],
+      "tag": "no st.*"
+    },
+    {
+      "id": "agent",
+      "type": "backend",
+      "label": "create_agent",
+      "sublabel": "SYSTEM_PROMPT",
+      "pos": [590, 300],
+      "size": [140, 64],
+      "tag": "cache"
+    },
+    {
+      "id": "middleware",
+      "type": "security",
+      "label": "Middleware",
+      "sublabel": "guard loop limits",
+      "pos": [590, 140],
+      "size": [140, 64],
+      "tag": "15 / 6"
+    },
+    {
+      "id": "groq",
+      "type": "cloud",
+      "label": "Groq",
+      "sublabel": "gpt-oss-120b",
+      "pos": [400, 140],
+      "size": [150, 64]
+    },
+    {
+      "id": "tools",
+      "type": "backend",
+      "label": "Catalog tools",
+      "sublabel": "4 tools + _clip",
+      "pos": [800, 300],
+      "size": [170, 64],
+      "tag": "untrusted"
+    },
+    {
+      "id": "services",
+      "type": "backend",
+      "label": "CatalogService",
+      "sublabel": "CompareService",
+      "pos": [1020, 300],
+      "size": [160, 64]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "security-group",
+      "label": "Catalog tools only",
+      "wraps": ["middleware", "tools"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "load-context",
+      "from": "context",
+      "to": "runner",
+      "label": "persisted",
+      "variant": "emphasis",
+      "labelDy": 56
+    },
+    {
+      "id": "invoke-agent",
+      "from": "runner",
+      "to": "agent",
+      "label": "run_query",
+      "variant": "emphasis"
+    },
+    {
+      "id": "model-call",
+      "from": "agent",
+      "to": "groq",
+      "label": "Completions",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "labelDx": -70
+    },
+    {
+      "id": "wrap-calls",
+      "from": "agent",
+      "to": "middleware",
+      "label": "wrap",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "route": "straight",
+      "variant": "security",
+      "labelDx": 36
+    },
+    {
+      "id": "tool-calls",
+      "from": "middleware",
+      "to": "tools",
+      "label": "4 tools",
+      "variant": "security",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "service-wrap",
+      "from": "tools",
+      "to": "services",
+      "label": "no SQL"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Prompt caching",
+      "items": [
+        "Static SYSTEM_PROMPT on create_agent; cached_tokens write-only",
+        "include_reasoning=false; history excludes system role rows"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Middleware order",
+      "items": [
+        "Guardrail, LoopGuard, ModelCallLimit 15, ToolCallLimit 6",
+        "Refuse keywords; block duplicate tools and URLs in args"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Tool loop",
+      "items": [
+        "Agent loops Groq until final AIMessage or step limit",
+        "Tool JSON clipped and prefixed untrusted before ToolMessage"
+      ]
+    }
+  ]
+}

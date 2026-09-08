@@ -40,7 +40,15 @@ Names come from `data/seed_products.json`. The full crawled catalog (~200 produc
 
 **Offline ingest** and the **hosted chat** are completely separate. The runtime agent has no HTTP, Playwright, SQL, shell, or secrets tools.
 
-Interactive diagrams: [docs/architecture](docs/architecture/README.md) ([ingestion](docs/architecture/ingestion-pipeline.html), [agent runtime](docs/architecture/agent-runtime.html)).
+Interactive diagrams: [docs/architecture](docs/architecture/README.md) ([ingestion](docs/architecture/ingestion-pipeline.html), [agent runtime](docs/architecture/agent-runtime.html), [runtime LLD](docs/architecture/agent-runtime-lld.html), [evaluation](docs/architecture/evaluation.html)). UI screenshots: [docs/screenshots](docs/screenshots/README.md).
+
+| Ingestion | Agent runtime |
+|-----------|---------------|
+| ![Ingestion pipeline](docs/architecture/ingestion-pipeline.png) | ![Agent runtime](docs/architecture/agent-runtime.png) |
+
+| Runtime LLD | Evaluation |
+|-------------|------------|
+| ![Agent runtime LLD](docs/architecture/agent-runtime-lld.png) | ![Evaluation harness](docs/architecture/evaluation.png) |
 
 ---
 
@@ -111,10 +119,26 @@ Four pages via `st.navigation`:
 |---|---|
 | **Chat** | Conversational agent interface. Follow-up chips, Show sources / Show charts buttons, snapshot disclaimer under chat input. |
 | **Crawled catalog** | Browse all ingested SKUs with name/brand/SKU filter and stored review excerpts. |
-| **Context & usage** | Per-conversation token breakdown, tool calls, agent steps, latency. |
+| **Context, tools, and usage** | Per-conversation token breakdown, tool calls, agent steps, latency. |
 | **About** | Architecture overview and example questions. |
 
 **Chat features**: titles (not UUIDs), sidebar tokens-this-chat counter, heuristic follow-ups that skip already-asked questions, `source_type` labels (Petbarn snapshot vs synthetic sample), charts/sources hidden until requested.
+
+### Screenshots
+
+| Chat | Catalog |
+|------|---------|
+| ![Chat](docs/screenshots/chat.png) | ![Crawled catalog](docs/screenshots/catalog.png) |
+
+| Usage | About |
+|-------|-------|
+| ![Context and usage](docs/screenshots/usage.png) | ![About](docs/screenshots/about.png) |
+
+Example agent response (Royal Canin vs Pedigree comparison):
+
+![Chat response](docs/screenshots/chat-response.png)
+
+More captures and regeneration steps: [docs/screenshots](docs/screenshots/README.md).
 
 ---
 

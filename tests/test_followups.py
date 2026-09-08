@@ -69,6 +69,18 @@ def test_followups_stay_in_category():
         assert "dine" in blob or "cat food" in blob
 
 
+def test_followups_for_aggregate_without_tools():
+    questions = suggest_followups(
+        [],
+        user_text="give me the top rated products",
+        assistant_text="Which kind of pet products are you interested in?",
+    )
+    assert questions
+    blob = " ".join(questions).lower()
+    assert "top rated" in blob or "cheapest" in blob or "most reviews" in blob
+    assert "hikari" not in blob
+
+
 def test_followups_from_ambiguous_candidates():
     questions = suggest_followups(
         [

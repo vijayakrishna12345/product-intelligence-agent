@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
+import re
 from typing import Any
 
 import streamlit as st
+
+_TOKEN = re.compile(r"[a-z0-9]+", re.I)
 
 
 def _num(value: Any) -> float | None:
@@ -101,15 +104,54 @@ def _unique_labels(values: list[str]) -> list[str]:
     return out
 
 
-def sources_caption(payloads: list[dict[str, Any]]) -> str:
+def _tokens(text: str) -> set[str]:
+    return {token.lower() for token in _TOKEN.findall(text) if len(token) >= 3}
+
+
+def _mentioned_in(text: str, name: str) -> bool:
+    hay = text.lower()
+    needle = name.lower().strip()
+    if not needle:
+        return False
+    if needle in hay:
+        return True
+    name_tokens = _tokens(needle)
+    if len(name_tokens) >= 2:
+        return name_tokens.issubset(_tokens(hay))
+    return False
+
+
+def _filter_rows_for_answer(
+    rows: list[dict[str, Any]],
+    assistant_text: str | None,
+    *,
+    limit: int = 4,
+) -> list[dict[str, Any]]:
+    if not rows or not assistant_text:
+        return rows[:limit]
+    mentioned = [row for row in rows if _mentioned_in(assistant_text, str(row.get("name") or ""))]
+    if mentioned:
+        return mentioned[:limit]
+    if len(rows) <= limit:
+        return rows
+    return rows[:limit]
+
+
+def sources_caption(
+    payloads: list[dict[str, Any]],
+    *,
+    assistant_text: str | None = None,
+    catalog_scraped_at: str | None = None,
+) -> str:
     if not payloads:
         return ""
     source_types: set[str] = set()
     names: list[str] = []
     skus: list[str] = []
-    scraped: str | None = None
+    scraped: str | None = catalog_scraped_at
     review_count = None
     examples = None
+    row_buffer: list[dict[str, Any]] = []
 
     def _absorb(row: dict[str, Any]) -> None:
         nonlocal scraped, review_count, examples
@@ -131,9 +173,18 @@ def sources_caption(payloads: list[dict[str, Any]]) -> str:
         _absorb(item)
         for row in list(item.get("products") or []) + list(item.get("matches") or []):
             if isinstance(row, dict):
+                row_buffer.append(row)
                 _absorb(row)
     if "petbarn_snapshot" not in source_types:
         return "Source: Synthetic sample data\nNot live Petbarn data"
+    filtered_rows = _filter_rows_for_answer(row_buffer, assistant_text)
+    if filtered_rows:
+        names = [
+            str(row.get("product") or row.get("name") or "").strip()
+            for row in filtered_rows
+            if row.get("product") or row.get("name")
+        ]
+        skus = [str(row.get("sku")) for row in filtered_rows if row.get("sku")]
     lines = ["Source: Petbarn snapshot"]
     unique_names = _unique_labels(names)
     unique_skus = _unique_labels(skus)

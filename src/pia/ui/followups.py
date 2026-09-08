@@ -16,6 +16,19 @@ _SOURCE_ASK = re.compile(
     r"\b(sources?|citations?|where (?:did|does) (?:this|that|the data)|catalog snapshot)\b",
     re.I,
 )
+_AGGREGATE_ASK = re.compile(
+    r"\b("
+    r"top rated|highest rated|best rated|top products|best products|"
+    r"cheapest|lowest price|most reviewed|most reviews|"
+    r"all (?:dog|cat|fish|bird|reptile)|"
+    r"show me (?:the )?(?:top|best|highest|cheapest)"
+    r")\b",
+    re.I,
+)
+_CLARIFY_ASK = re.compile(
+    r"\b(which kind|what kind|interested in|specific animal|let me know which)\b",
+    re.I,
+)
 
 
 def _norm(text: str) -> str:
@@ -40,9 +53,11 @@ def already_asked(suggestion: str, asked: list[str] | None) -> bool:
         hay = _norm(item)
         if not hay:
             continue
-        if needle == hay or needle in hay or hay in needle:
+        if needle == hay:
             return True
-        if SequenceMatcher(None, needle, hay).ratio() >= 0.86:
+        if needle in hay or hay in needle:
+            return True
+        if SequenceMatcher(None, needle, hay).ratio() >= 0.92:
             return True
     return False
 
@@ -123,9 +138,58 @@ def _anchor_row(payloads: list[dict[str, Any]], unique_names: list[str]) -> dict
     return {"name": unique_names[0]}
 
 
+def _aggregate_followups(user_text: str | None, assistant_text: str | None = None) -> list[str]:
+    blob = _norm(f"{user_text or ''} {assistant_text or ''}")
+    if not blob:
+        return []
+    if not _AGGREGATE_ASK.search(blob) and not _CLARIFY_ASK.search(assistant_text or ""):
+        return []
+    return [
+        "What are the top rated dog food products?",
+        "What is the cheapest cat food under $30?",
+        "Which products have the most reviews?",
+    ]
+
+
+def _search_match_rows(payloads: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for payload in payloads:
+        for row in payload.get("matches") or []:
+            if not isinstance(row, dict):
+                continue
+            name = str(row.get("name") or "").strip()
+            if not name or name.lower() in seen:
+                continue
+            seen.add(name.lower())
+            rows.append(row)
+    return rows
+
+
+def _finalize(
+    suggestions: list[str],
+    asked: list[str] | None,
+    *,
+    min_count: int = 3,
+) -> list[str]:
+    out: list[str] = []
+    seen_q: set[str] = set()
+    for item in suggestions:
+        key = item.lower()
+        if key in seen_q or already_asked(item, asked):
+            continue
+        seen_q.add(key)
+        out.append(item)
+        if len(out) >= min_count:
+            break
+    return out
+
+
 def suggest_followups(
     payloads: list[dict[str, Any]],
     *,
+    user_text: str | None = None,
+    assistant_text: str | None = None,
     catalog_names: list[str] | None = None,
     catalog_products: list[Any] | None = None,
     asked: list[str] | None = None,
@@ -134,6 +198,7 @@ def suggest_followups(
     not_found = False
     compared = False
     ambiguous_names: list[str] = []
+    search_rows = _search_match_rows(payloads)
     for payload in payloads:
         if payload.get("error") == "not_found":
             not_found = True
@@ -161,6 +226,7 @@ def suggest_followups(
         seen.add(key)
         unique_names.append(name)
     catalog_rows = _catalog_rows(catalog_products, catalog_names)
+    context_rows = search_rows or catalog_rows
     anchor = _anchor_row(payloads, unique_names)
     suggestions: list[str] = []
     for name in ambiguous_names[:3]:
@@ -168,6 +234,9 @@ def suggest_followups(
     if not_found:
         suggestions.append("Search the catalog for indoor cat food")
         suggestions.append("Which products have the highest ratings?")
+    aggregate = _aggregate_followups(user_text, assistant_text)
+    if aggregate and not unique_names and not ambiguous_names:
+        suggestions.extend(aggregate)
     for name in unique_names[:4]:
         suggestions.append(f"What are people saying about {name}?")
         suggestions.append(f"What is the price and rating of {name}?")
@@ -177,39 +246,23 @@ def suggest_followups(
             suggestions.append(
                 f"Compare {unique_names[0]} vs {unique_names[2]} on price and reviews"
             )
-    elif unique_names and catalog_rows and not ambiguous_names:
-        others = _same_category_names(anchor or {"name": unique_names[0]}, catalog_rows, seen)
+    elif unique_names and context_rows and not ambiguous_names:
+        others = _same_category_names(anchor or {"name": unique_names[0]}, context_rows, seen)
         for other in others[:2]:
             suggestions.append(f"Compare {unique_names[0]} vs {other}")
-    elif catalog_rows and not unique_names and not ambiguous_names:
-        first = catalog_rows[0]
+    elif search_rows and not unique_names and not ambiguous_names:
+        first = search_rows[0]
         first_name = first.get("name")
         if first_name:
             suggestions.append(f"Tell me about {first_name}")
-        if len(catalog_rows) >= 2:
-            peers = _same_category_names(first, catalog_rows, {str(first_name or "").lower()})
-            if peers:
-                suggestions.append(f"Compare {first_name} vs {peers[0]} on reviews")
-            else:
-                second = catalog_rows[1].get("name")
-                if second:
-                    suggestions.append(f"Compare {first_name} vs {second} on reviews")
-            if len(catalog_rows) >= 3:
-                third = catalog_rows[2].get("name")
-                if third:
-                    suggestions.append(f"Tell me about {third}")
+        peers = _same_category_names(first, search_rows, {str(first_name or "").lower()})
+        if peers:
+            suggestions.append(f"Compare {first_name} vs {peers[0]} on reviews")
     if compared:
         suggestions.append("Which of these has stronger recent review sentiment?")
-    out: list[str] = []
-    seen_q: set[str] = set()
-    for item in suggestions:
-        key = item.lower()
-        if key in seen_q or already_asked(item, asked):
-            continue
-        seen_q.add(key)
-        out.append(item)
-        if len(out) >= 3:
-            break
+    out = _finalize(suggestions, asked)
+    if not out and aggregate:
+        out = _finalize(aggregate, asked)
     return out
 
 
