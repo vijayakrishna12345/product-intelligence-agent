@@ -1,0 +1,15 @@
+---
+description: Agent, chat persistence, and Streamlit UX conventions
+globs: "src/pia/agent/**/*.py,src/pia/ui/**/*.py,src/pia/services/agent_runner.py,streamlit_app.py"
+alwaysApply: false
+---
+
+# Agent and UI
+
+- One row per message. `tool_calls` hold bounded redacted payloads. `agent_runs` hold status and usage numbers.
+- UI pagination is keyset on `sequence_no` (latest page + Load older). LLM context is last N **completed** turns only. Never put the current query in `build_context`.
+- Streamlit submits a run and polls with `st.fragment`. Never run LangChain as the only path on the script thread. Never SSE/FastAPI/Celery.
+- Worker threads must not call `st.*`. Resolve clients on the script thread and pass them in.
+- Chat selector is `?chat=<uuid>` plus New chat. Do not list every chat from Postgres. Sidebar labels use chat title, not the UUID.
+- Label sample fallback as synthetic, never Petbarn. Compare UI is a table plus a rating-only chart.
+- Chat page: heuristic follow-ups. Sources and charts stay hidden until the user asks (Show buttons or wording in the question). Context/tool tables stay on the Usage page. Sidebar shows total tokens for the open chat.

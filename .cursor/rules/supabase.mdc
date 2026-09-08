@@ -1,0 +1,14 @@
+---
+description: Supabase schema, RLS, and repository access for PIA
+globs: "supabase/**/*.sql,src/pia/db.py,src/pia/repositories/**/*.py"
+alwaysApply: false
+---
+
+# Supabase
+
+- Project `xqatwvlvdfkaujhwxoer` only. DDL via MCP `apply_migration` plus files in `supabase/migrations/`. Never `execute_sql` for DDL. Never create a second project.
+- RLS on every table. No anon writes. Streamlit and ingest use the secret/service-role key server-side only.
+- Sequence numbers come from RPC `allocate_chat_sequence`. Never `max(sequence_no)+1` in Python.
+- Insert `chat_messages` before FKs that point at them (`tool_calls.message_id`, `agent_runs.user_message_id`).
+- `crawl_pages` is metadata only: url PK, nullable sku, no machine-local paths.
+- Telemetry is numeric columns, never raw queries or transcripts.

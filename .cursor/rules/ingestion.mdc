@@ -1,0 +1,14 @@
+---
+description: Offline Petbarn ingest policy and snapshot rules
+globs: "src/pia/ingestion/**/*.py,src/pia/services/ingest.py,scripts/ingest.py"
+alwaysApply: false
+---
+
+# Ingestion
+
+Selection is `data/seed_products.json` first, then allowlisted `/p/...` locs from product sitemap children until `INGEST_MAX_PRODUCTS` (default 500). No CLI `--url` that bypasses policy.
+
+- Configured sitemap origin is already allowlisted, then GET the sitemap. It is a `<sitemapindex>`: traverse one level of `sitemap-1-*.xml` children (capped, cached). Seed lookup is a warning, not a hard fail (`SITEMAP_REQUIRED=false`).
+- Full URL policy on each product URL before fetch: parse → HTTPS/IP → domain → path → `DENY_PATTERNS` (incl. `bvstate=`) → robots.txt from that origin. `urllib.robotparser` misses wildcards; deny patterns are the real gate.
+- Fetcher (`http.py`) owns timeout/retry/delay. Parsers receive bytes only. JSON-LD for product metadata; Playwright only for reviews, paging via widget click, never `?bvstate=` URLs. Target is `INGEST_TARGET_REVIEWS` (default 10) unique excerpts per SKU.
+- Persist full reviews in Postgres. Committed `data/catalog.json` is compact excerpts only. No customer review corpus in git. Snapshot writes merge incrementally so a long run can resume.

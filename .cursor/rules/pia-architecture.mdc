@@ -1,0 +1,15 @@
+---
+description: Core architecture for the Product Intelligence Agent POC
+alwaysApply: true
+---
+
+# PIA architecture
+
+One LangChain `create_agent`. Four catalog tools only. No HTTP, Playwright, SQL, shell, or secrets tools at runtime.
+
+- Repositories persist (`src/pia/repositories/`). Services orchestrate (`src/pia/services/`). Tools wrap services, not tables.
+- Catalog lookup is per identity: Postgres → compact `data/catalog.json` → `data/sample_catalog.json`. Set `source_type` (`petbarn_snapshot` vs `synthetic_sample`).
+- Chats are a message timeline (`chat_messages`) plus `tool_calls` plus `agent_runs`. Roles are `user|assistant|tool` only. Never persist `system`. Never pack user+assistant in one row.
+- Telemetry is numeric columns on `agent_runs` / `tool_calls`. Never join it back into prompts or tool choice.
+- SKU is product identity. Do not lift Bazaarvoice passkeys. Groq model comes from settings. Playwright is ingest-only.
+- Use existing Supabase project `xqatwvlvdfkaujhwxoer` only.

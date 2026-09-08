@@ -1,0 +1,15 @@
+---
+description: Python conventions for pia (imports, uv, logging, tests)
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Python
+
+- Imports: stdlib, then third-party, then `pia.*`. All at module top. No unused imports.
+- Only allowed lazy import: Playwright inside the ingest review path so Streamlit Cloud never imports it.
+- Comments only for non-obvious constraints. Public modules get a one-line docstring.
+- Package with `uv` only (`uv add` / `uv lock` / `uv run`). Never `pip install`.
+- Repositories do not call tools or LLMs. Services do not embed SQL/PostgREST.
+- Logging via `pia.logging.get_logger`. Never log secrets, HTML, unbounded review text, or raw user queries.
+- Default pytest uses fakes and committed fixtures. No network. DeepEval only under `eval` or `conversation` markers.
