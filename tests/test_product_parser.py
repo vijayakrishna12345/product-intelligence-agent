@@ -14,6 +14,26 @@ def test_jsonld_to_product():
     assert product.name == "Fixture Indoor Cat Food 3kg"
     assert product.price == 19.95
     assert product.currency == "AUD"
+    assert product.category == "Food > Dry Food"
+
+
+def test_category_from_breadcrumb_when_jsonld_category_missing():
+    html = b"""<!DOCTYPE html><html><head>
+    <script type="application/ld+json">
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home"},
+      {"@type":"ListItem","position":2,"name":"Dog"},
+      {"@type":"ListItem","position":3,"name":"Food"},
+      {"@type":"ListItem","position":4,"name":"Dry Food"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@type":"Product","name":"Fixture Dog Kibble 2kg","sku":"DOG-1",
+     "offers":{"price":"12.00","priceCurrency":"AUD"}}
+    </script>
+    </head></html>"""
+    product = parse_product_html(html, "https://www.petbarn.com.au/p/dog-kibble-2kg")
+    assert product.category == "Food > Dry Food"
 
 
 def test_missing_sku_rejected():

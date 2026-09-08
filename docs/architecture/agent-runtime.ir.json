@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "PIA Agent Runtime Architecture",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "viewBox": [1280, 720],
+    "views": [
+      {
+        "id": "request-path",
+        "label": "Request path",
+        "focus": ["user", "streamlit", "runner", "agent", "groq"],
+        "note": "Chat submit leaves the UI thread via AgentRunner, then run_query talks to Groq."
+      },
+      {
+        "id": "tool-boundary",
+        "label": "Tool boundary",
+        "focus": ["agent", "middleware", "tools", "services"],
+        "note": "Four catalog tools only; middleware blocks loops, leaks, and URLs."
+      },
+      {
+        "id": "catalog-fallback",
+        "label": "Catalog fallback",
+        "focus": ["services", "catalog_repo", "postgres", "json_files"],
+        "note": "Per-SKU lookup is Postgres, then catalog.json, then sample_catalog.json."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "user",
+      "type": "external",
+      "label": "Shopper",
+      "sublabel": "?chat=uuid",
+      "pos": [40, 300],
+      "size": [120, 60]
+    },
+    {
+      "id": "streamlit",
+      "type": "frontend",
+      "label": "Streamlit UI",
+      "sublabel": "Chat + poll",
+      "pos": [210, 300],
+      "size": [140, 64],
+      "tag": "no SSE"
+    },
+    {
+      "id": "runner",
+      "type": "backend",
+      "label": "AgentRunner",
+      "sublabel": "thread pool",
+      "pos": [400, 300],
+      "size": [140, 64],
+      "tag": "no st.*"
+    },
+    {
+      "id": "agent",
+      "type": "backend",
+      "label": "create_agent",
+      "sublabel": "run_query",
+      "pos": [590, 300],
+      "size": [140, 64],
+      "tag": "4 turns"
+    },
+    {
+      "id": "middleware",
+      "type": "security",
+      "label": "Middleware",
+      "sublabel": "guard + limits",
+      "pos": [590, 140],
+      "size": [140, 64],
+      "tag": "15 / 6"
+    },
+    {
+      "id": "groq",
+      "type": "cloud",
+      "label": "Groq",
+      "sublabel": "gpt-oss-120b",
+      "pos": [400, 140],
+      "size": [150, 64]
+    },
+    {
+      "id": "tools",
+      "type": "backend",
+      "label": "Catalog tools",
+      "sublabel": "search details reviews compare",
+      "pos": [800, 300],
+      "size": [170, 64],
+      "tag": "untrusted"
+    },
+    {
+      "id": "services",
+      "type": "backend",
+      "label": "Catalog services",
+      "sublabel": "Catalog + Compare",
+      "pos": [1020, 300],
+      "size": [160, 64]
+    },
+    {
+      "id": "chat_store",
+      "type": "backend",
+      "label": "Chat + runs",
+      "sublabel": "timeline repos",
+      "pos": [400, 480],
+      "size": [150, 64],
+      "tag": "no system"
+    },
+    {
+      "id": "catalog_repo",
+      "type": "backend",
+      "label": "CatalogRepository",
+      "sublabel": "identity lookup",
+      "pos": [800, 480],
+      "size": [170, 64]
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "Postgres",
+      "sublabel": "Supabase",
+      "pos": [590, 640],
+      "size": [160, 64],
+      "brand": "supabase"
+    },
+    {
+      "id": "json_files",
+      "type": "database",
+      "label": "JSON snapshots",
+      "sublabel": "catalog then sample",
+      "pos": [1020, 480],
+      "size": [160, 64],
+      "tag": "source_type"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Streamlit process",
+      "wraps": [
+        "streamlit",
+        "runner",
+        "agent",
+        "middleware",
+        "tools",
+        "services",
+        "chat_store",
+        "catalog_repo"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "Catalog tools only",
+      "wraps": ["middleware", "tools"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "chat-submit",
+      "from": "user",
+      "to": "streamlit",
+      "label": "chat input",
+      "variant": "emphasis",
+      "labelDy": -28
+    },
+    {
+      "id": "runner-submit",
+      "from": "streamlit",
+      "to": "runner",
+      "label": "submit()"
+    },
+    {
+      "id": "invoke-agent",
+      "from": "runner",
+      "to": "agent",
+      "label": "run_query",
+      "variant": "emphasis"
+    },
+    {
+      "id": "model-call",
+      "from": "agent",
+      "to": "groq",
+      "label": "Chat Completions",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "labelDx": -70
+    },
+    {
+      "id": "wrap-calls",
+      "from": "agent",
+      "to": "middleware",
+      "label": "wrap",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "route": "straight",
+      "variant": "security",
+      "labelDx": 36
+    },
+    {
+      "id": "tool-calls",
+      "from": "middleware",
+      "to": "tools",
+      "label": "4 tools",
+      "variant": "security",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "service-wrap",
+      "from": "tools",
+      "to": "services",
+      "label": "no SQL"
+    },
+    {
+      "id": "catalog-read",
+      "from": "services",
+      "to": "catalog_repo",
+      "label": "resolve",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "pg-primary",
+      "from": "catalog_repo",
+      "to": "postgres",
+      "label": "products",
+      "fromSide": "bottom",
+      "toSide": "right"
+    },
+    {
+      "id": "json-fallback",
+      "from": "catalog_repo",
+      "to": "json_files",
+      "label": "JSON fallback",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelDy": 56
+    },
+    {
+      "id": "persist-turn",
+      "from": "runner",
+      "to": "chat_store",
+      "label": "user|tool|assistant",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "telemetry",
+      "from": "chat_store",
+      "to": "postgres",
+      "label": "chats + runs",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Request path",
+      "items": [
+        "Chat submit runs LangChain off the Streamlit script thread",
+        "Groq gpt-oss-120b with include_reasoning=false"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Hard tool boundary",
+      "items": [
+        "Four tools: search, details, reviews, compare",
+        "No HTTP, Playwright, SQL, shell, or secrets tools"
+      ]
+    },
+    {
+      "dot": "orange",
+      "title": "Persistence",
+      "items": [
+        "Messages are user, assistant, and tool only; never system",
+        "Catalog fallback: Postgres, then catalog.json, then sample"
+      ]
+    }
+  ]
+}

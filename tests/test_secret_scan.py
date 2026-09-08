@@ -5,6 +5,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MARKERS = ("gsk_", "BEGIN RSA PRIVATE KEY", "BEGIN OPENSSH PRIVATE KEY")
+DETECTORS = {
+    "scripts/check_ready.py",
+    "src/pia/agent/guardrails.py",
+    "tests/test_guardrails.py",
+    "tests/test_secret_scan.py",
+}
 
 
 def test_tracked_files_have_no_secret_markers():
@@ -21,10 +27,14 @@ def test_tracked_files_have_no_secret_markers():
         if not path.is_file():
             continue
         text = path.read_text(encoding="utf-8", errors="ignore")
+        normalized = rel.replace("\\", "/")
+        if normalized.endswith(".env.example"):
+            assert "your_groq_api_key" in text
+            assert "gsk_" not in text
+            continue
+        if normalized in DETECTORS:
+            continue
         for marker in MARKERS:
             if marker in text:
                 hits.append(f"{rel}: {marker}")
-        if rel.endswith(".env.example"):
-            assert "your_groq_api_key" in text
-            assert "gsk_" not in text
     assert hits == []

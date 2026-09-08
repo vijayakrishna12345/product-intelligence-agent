@@ -6,6 +6,7 @@ import json
 import re
 from typing import Any
 
+from pia.analysis.taxonomy import breadcrumb_category, normalize_category
 from pia.domain.errors import IngestionError
 from pia.domain.models import ProductInput
 
@@ -71,9 +72,26 @@ def _offer(node: dict[str, Any]) -> dict[str, Any]:
     return offers if isinstance(offers, dict) else {}
 
 
+def _collect_breadcrumb(text: str) -> str | None:
+    for match in _SCRIPT.finditer(text):
+        raw = match.group(1).strip()
+        try:
+            payload = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        for node in _objects(payload):
+            if "breadcrumblist" not in _type_set(node):
+                continue
+            category = breadcrumb_category(node)
+            if category:
+                return category
+    return None
+
+
 def parse_product_html(html: bytes | str, page_url: str) -> ProductInput:
     """JSON-LD is cheaper and more stable than CSS selectors for Magento product pages."""
     text = html.decode("utf-8", errors="replace") if isinstance(html, bytes) else html
+    breadcrumb = _collect_breadcrumb(text)
     for match in _SCRIPT.finditer(text):
         raw = match.group(1).strip()
         try:
@@ -94,13 +112,21 @@ def parse_product_html(html: bytes | str, page_url: str) -> ProductInput:
                 node.get("aggregateRating") if isinstance(node.get("aggregateRating"), dict) else {}
             )
             brand = node.get("brand")
+            description = _text(node.get("description"))
+            raw_category = _text(node.get("category")) or breadcrumb
+            category = normalize_category(
+                raw_category,
+                name=name,
+                url=url,
+                description=description,
+            )
             return ProductInput(
                 sku=sku,
                 name=name,
                 url=url,
                 brand=_text(brand),
-                category=_text(node.get("category")),
-                description=_text(node.get("description")),
+                category=category,
+                description=description,
                 price=_float(offer.get("price") or node.get("price")),
                 currency=_text(offer.get("priceCurrency")) or "AUD",
                 availability=_text(offer.get("availability")),

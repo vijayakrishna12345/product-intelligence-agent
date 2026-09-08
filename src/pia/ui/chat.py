@@ -246,7 +246,11 @@ def _render_chat() -> None:
             last_completed = turn_id
             break
 
-    catalog_names = [item.name for item in products[:12] if item.name]
+    catalog_products = [
+        {"name": item.name, "brand": item.brand, "category": item.category}
+        for item in products[:30]
+        if item.name
+    ]
     for turn_id in turn_order:
         rows = by_turn[turn_id]
         users = [row for row in rows if row.role == "user"]
@@ -293,7 +297,7 @@ def _render_chat() -> None:
                     used = (st.session_state.get("used_followups") or {}).get(str(chat_id), [])
                     followups = suggest_followups(
                         payloads,
-                        catalog_names=catalog_names,
+                        catalog_products=catalog_products,
                         asked=asked + list(used),
                     )
                     if followups:

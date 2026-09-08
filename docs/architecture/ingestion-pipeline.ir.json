@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "PIA Offline Ingestion Pipeline",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "viewBox": [1080, 640],
+    "views": [
+      {
+        "id": "discovery-path",
+        "label": "URL discovery",
+        "focus": ["seeds", "petbarn", "sitemap", "policy"],
+        "note": "Seeds are processed first, then sitemap fill, then HTTPS policy."
+      },
+      {
+        "id": "extract-path",
+        "label": "Extract and gate",
+        "focus": ["http", "parser", "reviews", "quality"],
+        "note": "JSON-LD products and Playwright reviews meet at the quality gate."
+      },
+      {
+        "id": "persist-path",
+        "label": "Dual persist",
+        "focus": ["quality", "crawl", "postgres", "snapshot"],
+        "note": "CrawlRepository upserts Postgres and merges a compact catalog.json."
+      }
+    ]
+  },
+  "stages": [
+    { "label": "Sources" },
+    { "label": "Sitemap" },
+    { "label": "Fetch" },
+    { "label": "Extract" },
+    { "label": "Persist" }
+  ],
+  "nodes": [
+    {
+      "id": "seeds",
+      "type": "database",
+      "label": "Seeds",
+      "sublabel": "seed JSON",
+      "stage": 0,
+      "row": 0,
+      "tag": "first"
+    },
+    {
+      "id": "cli",
+      "type": "backend",
+      "label": "Ingest CLI",
+      "sublabel": "ingest.py",
+      "stage": 0,
+      "row": 1,
+      "tag": "offline"
+    },
+    {
+      "id": "petbarn",
+      "type": "external",
+      "label": "Petbarn",
+      "sublabel": "petbarn.com.au",
+      "stage": 0,
+      "row": 2,
+      "tag": "HTTPS"
+    },
+    {
+      "id": "sitemap",
+      "type": "backend",
+      "label": "Sitemap",
+      "sublabel": "sitemap.py",
+      "stage": 1,
+      "row": 1,
+      "tag": "max 500"
+    },
+    {
+      "id": "policy",
+      "type": "security",
+      "label": "URL Policy",
+      "sublabel": "allowlist + robots",
+      "stage": 2,
+      "row": 0,
+      "tag": "deny list"
+    },
+    {
+      "id": "http",
+      "type": "cloud",
+      "label": "UrlFetcher",
+      "sublabel": "httpx + delay",
+      "stage": 2,
+      "row": 2,
+      "tag": "retry 3"
+    },
+    {
+      "id": "parser",
+      "type": "backend",
+      "label": "JSON-LD",
+      "sublabel": "product_parser",
+      "stage": 3,
+      "row": 0,
+      "tag": "sku+name"
+    },
+    {
+      "id": "quality",
+      "type": "security",
+      "label": "Quality Gate",
+      "sublabel": "quality + VADER",
+      "stage": 3,
+      "row": 1,
+      "tag": "SKU id"
+    },
+    {
+      "id": "reviews",
+      "type": "backend",
+      "label": "Playwright",
+      "sublabel": "BV widget only",
+      "stage": 3,
+      "row": 2,
+      "tag": "resume skip"
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "Postgres",
+      "sublabel": "Supabase",
+      "stage": 4,
+      "row": 0,
+      "tag": "service role",
+      "brand": "supabase"
+    },
+    {
+      "id": "crawl",
+      "type": "backend",
+      "label": "CrawlRepository",
+      "sublabel": "upsert by SKU",
+      "stage": 4,
+      "row": 1,
+      "tag": "RLS deny"
+    },
+    {
+      "id": "snapshot",
+      "type": "database",
+      "label": "catalog.json",
+      "sublabel": "excerpts + manifest",
+      "stage": 4,
+      "row": 2,
+      "tag": "merge SKU"
+    }
+  ],
+  "flows": [
+    {
+      "id": "cli-start",
+      "from": "cli",
+      "to": "sitemap",
+      "label": "IngestService.run",
+      "classification": "offline only",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left",
+      "route": "straight",
+      "labelDy": -22
+    },
+    {
+      "id": "seed-urls",
+      "from": "seeds",
+      "to": "policy",
+      "label": "seed URLs first",
+      "classification": "deduped",
+      "fromSide": "right",
+      "toSide": "left",
+      "route": "straight"
+    },
+    {
+      "id": "sitemap-xml",
+      "from": "petbarn",
+      "to": "sitemap",
+      "label": "sitemap XML",
+      "classification": "cached children",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "product-locs",
+      "from": "sitemap",
+      "to": "policy",
+      "label": "product URLs",
+      "classification": "cap 500",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "allowed-fetch",
+      "from": "policy",
+      "to": "http",
+      "label": "allowed HTTPS",
+      "classification": "robots + deny",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight",
+      "labelDy": 24
+    },
+    {
+      "id": "page-html",
+      "from": "http",
+      "to": "parser",
+      "label": "product HTML",
+      "classification": "raw artifact",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left",
+      "via": [[638, 385], [638, 157]],
+      "labelAt": [652, 271]
+    },
+    {
+      "id": "review-nav",
+      "from": "http",
+      "to": "reviews",
+      "label": "product URL",
+      "classification": "no bvstate",
+      "fromSide": "right",
+      "toSide": "left",
+      "route": "straight",
+      "labelDy": 42
+    },
+    {
+      "id": "product-input",
+      "from": "parser",
+      "to": "quality",
+      "label": "ProductInput",
+      "classification": "sku + name",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight",
+      "labelDy": 24
+    },
+    {
+      "id": "review-input",
+      "from": "reviews",
+      "to": "quality",
+      "label": "ReviewInput",
+      "classification": "VADER scored",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "route": "straight",
+      "labelDy": 82
+    },
+    {
+      "id": "accepted-rows",
+      "from": "quality",
+      "to": "crawl",
+      "label": "Product + Review",
+      "classification": "SKU identity",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "upsert-pg",
+      "from": "crawl",
+      "to": "postgres",
+      "label": "upsert tables",
+      "classification": "service role",
+      "variant": "emphasis",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "route": "straight",
+      "labelDx": -70,
+      "labelDy": -20
+    },
+    {
+      "id": "compact-snapshot",
+      "from": "crawl",
+      "to": "snapshot",
+      "label": "compact merge",
+      "classification": "excerpts only",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight",
+      "labelDx": 70,
+      "labelDy": 20
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Primary ingest path",
+      "items": [
+        "Seeds first, then sitemap fill, then UrlFetcher with delay and retries",
+        "Accepted rows upsert Postgres and merge compact catalog.json"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Crawl controls",
+      "items": [
+        "HTTPS allowlist, DENY_PATTERNS, robots.txt; no BV passkeys or bvstate URLs",
+        "Skip Playwright when stored reviews already meet the target count"
+      ]
+    },
+    {
+      "dot": "orange",
+      "title": "Isolation",
+      "items": [
+        "Tables: crawl_runs, products, product_reviews, crawl_pages",
+        "No Groq, Streamlit, or LangChain on this path"
+      ]
+    }
+  ]
+}

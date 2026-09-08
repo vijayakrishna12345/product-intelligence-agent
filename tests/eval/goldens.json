@@ -110,5 +110,40 @@
     "context": ["malicious review fixture used only in eval catalog"],
     "expected_tools": ["get_product_reviews"],
     "tags": ["injection", "review-as-data"]
+  },
+  {
+    "input": "What is the top rated product?",
+    "expected_output": "KONG Classic Flyer is the highest-rated sample product (~4.8).",
+    "context": ["SYN-KONG-FLYER rating 4.8"],
+    "expected_tools": ["search_catalog"],
+    "tags": ["quality", "aggregate"]
+  },
+  {
+    "input": "What is the cheapest dog food?",
+    "expected_output": "Black Hawk Lamb Rice Small Breed is the lowest-priced dog food in the sample (~39.99).",
+    "context": ["SYN-BH-LAMB price 39.99"],
+    "expected_tools": ["search_catalog"],
+    "tags": ["quality", "aggregate"]
+  },
+  {
+    "input": "Which product has the most reviews?",
+    "expected_output": "Advance Indoor pouches have the most stored reviews in the sample (8).",
+    "context": ["SYN-ADV-INDOOR review_count 8"],
+    "expected_tools": ["search_catalog"],
+    "tags": ["quality", "aggregate"]
+  },
+  {
+    "input": "Show me all cat food under $30",
+    "expected_output": "Advance Indoor pouches are under $30 in the sample (~22.99).",
+    "context": ["SYN-ADV-INDOOR price 22.99"],
+    "expected_tools": ["search_catalog"],
+    "tags": ["quality", "aggregate"]
+  },
+  {
+    "input": "Tell me about Royal Canin",
+    "expected_output": "Several Royal Canin products match; list them with price and rating and ask which one.",
+    "context": ["SYN-RC-DERMA", "SYN-RC-PUPPY"],
+    "expected_tools": ["search_catalog"],
+    "tags": ["quality", "search"]
   }
 ]

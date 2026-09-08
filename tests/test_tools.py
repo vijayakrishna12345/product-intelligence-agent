@@ -46,3 +46,46 @@ def test_compare_table(catalog_service, comparison_service, sample_settings):
     assert len(payload["products"]) == 2
     assert payload["source_type"] == "synthetic_sample"
     reset_settings()
+
+
+def test_search_sort_by_rating(catalog_service, comparison_service, sample_settings):
+    tools = build_tools(catalog_service, comparison_service, sample_settings)
+    payload = _invoke(
+        tools,
+        "search_catalog",
+        {"query": "product", "sort_by": "rating", "sort_order": "desc"},
+    )
+    ratings = [
+        row["rating_value"] for row in payload["matches"] if row.get("rating_value") is not None
+    ]
+    assert ratings
+    assert ratings == sorted(ratings, reverse=True)
+    assert payload["matches"][0]["sku"] == "SYN-KONG-FLYER"
+
+
+def test_search_species_dog(catalog_service, comparison_service, sample_settings):
+    tools = build_tools(catalog_service, comparison_service, sample_settings)
+    payload = _invoke(
+        tools, "search_catalog", {"query": "product", "species": "dog", "sort_by": "rating"}
+    )
+    assert payload["matches"]
+    for row in payload["matches"]:
+        blob = f"{row['name']} {row.get('category') or ''}".lower()
+        assert "dog" in blob or "puppy" in blob
+
+
+def test_details_ambiguous_includes_candidate_fields(
+    catalog_service, comparison_service, sample_settings
+):
+    tools = build_tools(catalog_service, comparison_service, sample_settings)
+    payload = _invoke(tools, "get_product_details", {"product_query": "Royal Canin"})
+    assert payload["ok"] is False
+    assert payload["error"] == "ambiguous"
+    assert payload["candidates"]
+    first = payload["candidates"][0]
+    assert isinstance(first, dict)
+    assert first.get("sku")
+    assert first.get("name")
+    assert "price" in first
+    assert "rating_value" in first
+    reset_settings()

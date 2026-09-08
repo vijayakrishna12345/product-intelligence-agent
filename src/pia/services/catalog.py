@@ -5,11 +5,24 @@ from __future__ import annotations
 import difflib
 from collections import Counter
 
+from pia.analysis.taxonomy import species_matches
 from pia.domain.errors import AmbiguousProduct, ProductNotFound
 from pia.domain.models import Product, Review
 from pia.privacy import redact_text, truncate
 from pia.repositories.catalog import CatalogRepository
 from pia.settings import Settings, get_settings
+
+_GENERIC_QUERIES = {
+    "",
+    "product",
+    "products",
+    "top",
+    "best",
+    "catalog",
+    "all",
+    "item",
+    "items",
+}
 
 
 class CatalogService:
@@ -36,25 +49,57 @@ class CatalogService:
         *,
         limit: int = 8,
         max_price: float | None = None,
+        sort_by: str | None = None,
+        sort_order: str | None = None,
+        species: str | None = None,
     ) -> list[Product]:
-        seen: set[str] = set()
-        hits: list[Product] = []
-        for pool in self._repository.match_pools():
-            ranked = self._rank_pool(query, pool)
-            for product, score in ranked:
-                if score < 0.35 or product.sku in seen:
-                    continue
-                if (
-                    max_price is not None
-                    and product.price is not None
-                    and product.price > max_price
-                ):
-                    continue
-                seen.add(product.sku)
-                hits.append(product)
-                if len(hits) >= limit:
-                    return hits
-        return hits
+        cap = max(1, min(limit, 25))
+        if sort_by:
+            return self.top_products(
+                sort_by=sort_by,
+                sort_order=sort_order or "desc",
+                species=species,
+                limit=cap,
+                query=query,
+                max_price=max_price,
+            )
+        return self._search_relevance(
+            query,
+            limit=cap,
+            max_price=max_price,
+            species=species,
+        )
+
+    def top_products(
+        self,
+        *,
+        sort_by: str = "rating",
+        sort_order: str = "desc",
+        species: str | None = None,
+        limit: int = 8,
+        query: str = "",
+        max_price: float | None = None,
+    ) -> list[Product]:
+        cap = max(1, min(limit, 25))
+        generic = (query or "").strip().lower() in _GENERIC_QUERIES
+        if generic:
+            pool = self._all_products()
+        else:
+            pool = self._search_relevance(
+                query,
+                limit=max(cap * 4, 40),
+                max_price=None,
+                species=None,
+            )
+        pool = [
+            item
+            for item in pool
+            if self._price_ok(item, max_price) and self._species_ok(item, species)
+        ]
+        reverse = (sort_order or "desc").lower() != "asc"
+        field = (sort_by or "rating").lower()
+        pool.sort(key=lambda item: self._sort_tuple(item, field), reverse=reverse)
+        return pool[:cap]
 
     def resolve(self, query: str) -> Product:
         q = query.strip()
@@ -72,12 +117,90 @@ class CatalogService:
             close = [(item, score) for item, score in ranked if score >= 0.72]
             close_skus = {item.sku for item, _ in close}
             if len(close_skus) > 1:
-                names = [f"{item.name} ({item.sku})" for item, _ in close[:5]]
-                raise AmbiguousProduct(query, names)
+                second_score = ranked[1][1] if len(ranked) > 1 else 0.0
+                if best_score - second_score >= 0.08:
+                    return best
+                raise AmbiguousProduct(
+                    query,
+                    [self._candidate_dict(item) for item, _ in close[:5]],
+                )
             if best_score >= 0.72:
                 return best
             last_candidates = [f"{item.name} ({item.sku})" for item, _ in ranked[:5]]
         raise ProductNotFound(query, last_candidates)
+
+    def _all_products(self) -> list[Product]:
+        seen: set[str] = set()
+        out: list[Product] = []
+        for pool in self._repository.match_pools():
+            for product in pool:
+                if product.sku in seen:
+                    continue
+                seen.add(product.sku)
+                out.append(product)
+        return out
+
+    def _search_relevance(
+        self,
+        query: str,
+        *,
+        limit: int,
+        max_price: float | None,
+        species: str | None,
+    ) -> list[Product]:
+        if not (query or "").strip():
+            return []
+        seen: set[str] = set()
+        hits: list[Product] = []
+        for pool in self._repository.match_pools():
+            ranked = self._rank_pool(query, pool)
+            for product, score in ranked:
+                if score < 0.35 or product.sku in seen:
+                    continue
+                if not self._price_ok(product, max_price):
+                    continue
+                if not self._species_ok(product, species):
+                    continue
+                seen.add(product.sku)
+                hits.append(product)
+                if len(hits) >= limit:
+                    return hits
+        return hits
+
+    def _price_ok(self, product: Product, max_price: float | None) -> bool:
+        if max_price is None or product.price is None:
+            return True
+        return product.price <= max_price
+
+    def _species_ok(self, product: Product, species: str | None) -> bool:
+        return species_matches(
+            species,
+            name=product.name,
+            category=product.category,
+            url=product.url,
+            description=product.description,
+        )
+
+    def _sort_tuple(self, product: Product, field: str) -> tuple[bool, float | str]:
+        if field == "price":
+            return (product.price is not None, product.price or 0.0)
+        if field == "reviews":
+            count = product.review_count or 0
+            return (product.review_count is not None, float(count))
+        if field == "name":
+            return (True, (product.name or "").lower())
+        return (product.rating_value is not None, product.rating_value or 0.0)
+
+    def _candidate_dict(self, product: Product) -> dict:
+        return {
+            "name": product.name,
+            "sku": product.sku,
+            "brand": product.brand,
+            "category": product.category,
+            "price": product.price,
+            "rating_value": product.rating_value,
+            "review_count": product.review_count,
+        }
 
     def _rank_pool(self, query: str, products: list[Product]) -> list[tuple[Product, float]]:
         scored = [(product, self._score(query, product)) for product in products]
@@ -89,6 +212,7 @@ class CatalogService:
         sku = product.sku.lower()
         name = product.name.lower()
         brand = (product.brand or "").lower()
+        category = (product.category or "").lower()
         if q == sku or q == name:
             return 1.0
         if q in sku or sku in q:
@@ -98,8 +222,14 @@ class CatalogService:
         tokens = [token for token in q.split() if token]
         if tokens and all(token in name for token in tokens):
             return 0.84
-        if brand and q in brand:
-            return 0.6
+        if brand and (q == brand or q in brand or brand in q):
+            return 0.82
+        if category and (q == category or q in category):
+            return 0.78
+        if tokens and category and all(token in f"{name} {category}" for token in tokens):
+            return 0.76
+        if brand and any(token in brand for token in tokens):
+            return 0.7
         return difflib.SequenceMatcher(None, q, name).ratio()
 
     def details_payload(self, query: str) -> dict:
@@ -130,6 +260,7 @@ class CatalogService:
             "product": product.name,
             "sku": product.sku,
             "brand": product.brand,
+            "category": product.category,
             "url": product.url,
             "description": truncate(product.description, 500),
             "price": product.price,

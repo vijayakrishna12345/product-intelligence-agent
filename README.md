@@ -40,6 +40,8 @@ Names come from `data/seed_products.json`. The full crawled catalog (~200 produc
 
 **Offline ingest** and the **hosted chat** are completely separate. The runtime agent has no HTTP, Playwright, SQL, shell, or secrets tools.
 
+Interactive diagrams: [docs/architecture](docs/architecture/README.md) ([ingestion](docs/architecture/ingestion-pipeline.html), [agent runtime](docs/architecture/agent-runtime.html)).
+
 ---
 
 ## Agent Design
@@ -126,7 +128,7 @@ Four pages via `st.navigation`:
 
 ### Single-turn (`pytest -m eval`)
 
-16 golden test cases in `tests/eval/goldens.json` covering: price lookup, rating, reviews, search, comparison (2 and 3 products), ambiguous queries, unknown products, hallucination resistance, and indirect prompt injection.
+21 golden test cases in `tests/eval/goldens.json` covering: price lookup, rating, reviews, search, comparison (2 and 3 products), ambiguous queries, unknown products, hallucination resistance, aggregate ranking (top rated, cheapest, most reviewed), filtered search, and indirect prompt injection.
 
 Four DeepEval metrics scored by `GroqJudge` (`openai/gpt-oss-20b`):
 
@@ -230,7 +232,7 @@ product-intelligence-agent/
 │   ├── test_db.py                # Supabase client factory
 │   ├── test_secret_scan.py       # No secrets in tracked files
 │   └── eval/
-│       ├── goldens.json          # 16 single-turn golden test cases
+│       ├── goldens.json          # 21 single-turn golden test cases
 │       ├── difficult_goldens.json # 12 difficult release-gate cases
 │       ├── conversational_goldens.json
 │       ├── attack_scenarios.py   # Adversarial simulation graphs

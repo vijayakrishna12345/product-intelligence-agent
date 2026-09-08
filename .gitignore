@@ -233,6 +233,10 @@ eval/results/*.json
 !eval/results/.gitkeep
 data/raw/
 
+# Archify local skill copy and visual-check sidecars
+.agents/
+docs/architecture/*.visual-check.*
+
 # Playwright MCP snapshots
 .playwright-mcp/
 *.png

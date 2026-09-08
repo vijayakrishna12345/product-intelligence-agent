@@ -13,7 +13,7 @@ class ProductNotFound(PiaError):
 
 
 class AmbiguousProduct(PiaError):
-    def __init__(self, query: str, candidates: list[str]) -> None:
+    def __init__(self, query: str, candidates: list) -> None:
         self.query = query
         self.candidates = candidates
         super().__init__(f"Ambiguous product: {query}")

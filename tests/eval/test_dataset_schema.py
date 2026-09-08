@@ -17,10 +17,10 @@ NAMES = {item["name"] for item in SAMPLE["products"]}
 
 def test_golden_counts_and_expected_tools():
     rows = load_goldens()
-    assert len(rows) == 16
+    assert len(rows) == 21
     quality = [row for row in rows if "injection" not in row.get("tags", [])]
     injection = [row for row in rows if "injection" in row.get("tags", [])]
-    assert len(quality) == 15
+    assert len(quality) == 20
     assert len(injection) == 1
     compares = [row for row in rows if row.get("expected_tools") == ["compare_products"]]
     assert len(compares) == 3
@@ -33,7 +33,7 @@ def test_goldens_reference_sample_catalog_or_unknown():
     rows = load_goldens()
     for row in rows:
         tags = row.get("tags") or []
-        if "unknown" in tags or "injection" in tags:
+        if "unknown" in tags or "injection" in tags or "aggregate" in tags:
             continue
         blob = row["input"] + " " + " ".join(row.get("context") or [])
         assert any(name.split()[0] in blob or sku in blob for sku in SKUS for name in NAMES) or any(

@@ -15,6 +15,12 @@ from pia.repositories.catalog import CatalogRepository  # noqa: E402
 from pia.settings import get_settings  # noqa: E402
 
 SECRET_MARKERS = ("gsk_", "BEGIN RSA PRIVATE KEY", "BEGIN OPENSSH PRIVATE KEY")
+DETECTOR_FILES = {
+    "scripts/check_ready.py",
+    "src/pia/agent/guardrails.py",
+    "tests/test_guardrails.py",
+    "tests/test_secret_scan.py",
+}
 
 
 def tracked_files() -> list[str]:
@@ -37,6 +43,9 @@ def secret_scan() -> list[str]:
         try:
             text = path.read_text(encoding="utf-8", errors="ignore")
         except OSError:
+            continue
+        normalized = rel.replace("\\", "/")
+        if normalized in DETECTOR_FILES:
             continue
         for marker in SECRET_MARKERS:
             if marker in text:

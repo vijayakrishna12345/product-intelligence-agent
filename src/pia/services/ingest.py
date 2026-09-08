@@ -8,6 +8,7 @@ from pathlib import Path
 from uuid import UUID
 
 from pia.analysis.sentiment import score_text
+from pia.analysis.taxonomy import normalize_category
 from pia.domain.models import Product, Review
 from pia.ingestion.http import UrlFetcher, content_hash, write_raw
 from pia.ingestion.policy import check_url, configured_sitemap, origin_allowed
@@ -118,6 +119,13 @@ class IngestService:
                     product = product_from_input(parsed)
                     if product is None:
                         raise RuntimeError("quality gate rejected product")
+                    if not product.category:
+                        product.category = normalize_category(
+                            None,
+                            name=product.name,
+                            url=product.url,
+                            description=product.description,
+                        )
                     write_raw(ROOT / "data" / "raw" / str(product.sku) / "page.html", html)
                     self._crawl.record_page(url, sku=product.sku, content_hash=content_hash(html))
                     product.scraped_at = datetime.now(UTC)
@@ -221,6 +229,7 @@ class IngestService:
                     "sku": product.sku,
                     "name": product.name,
                     "brand": product.brand,
+                    "category": product.category,
                     "price": product.price,
                     "currency": product.currency,
                     "availability": product.availability,
